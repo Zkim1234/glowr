@@ -1,0 +1,250 @@
+/* Color variables */
+:root {
+    --blue: #6F97AD;
+    --light-blue: #F1F5F7;
+    --gray: #D9D9D9;
+    --background-color: #f5f5f5;
+    --text-color: #333333;
+    font-family: 'Arial', sans-serif;
+   
+}
+
+body{
+    margin: 0;
+}
+
+/* font sizes */
+p{
+    font-size: 14px;
+    color: var(--text-color);
+}
+.bold{
+    font-weight: bold;
+}
+.mobile-regular{
+    font-size: 14px;
+}
+.mobile-title{
+    font-size: 24px;
+}
+.mobile-small{
+    font-size: 11px;
+}
+.mobile-subheading{
+    font-size: 20px;
+}
+.mobile-bigger-regular{
+    font-size:16px;
+}
+.align-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+/*------ layout ------*/
+.product-container{
+    margin: 0 1.5em ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  
+}
+.product-img {
+    width: 90%;
+    height: auto;
+}
+.brand-name{
+    color: var(--blue);
+}
+
+.rating{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating-avg{
+    font-size: 40px;
+}
+
+.product-details{
+    display: grid; 
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    gap: 1em;
+    max-width: 100%;
+    > .ingredients{
+        grid-column: 1 / -1;
+         grid-row: 2; 
+    }
+}
+
+.ingredient{
+    display: flex;
+    gap: 0.5em;
+}
+
+.ingredients-detected{
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    > p{
+        padding:0;
+        margin: 0.5em 0;
+    }
+}
+
+.ingredients-info{
+    background-color: var(--light-blue);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.best-for-graph{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    }
+    .best-for-graph > div {
+    position: relative;
+    border-top: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 1em;
+    padding-top: 0;
+    text-align: center;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    }
+    .best-for-bar {
+        font-size: 11px;
+        position: relative;
+        border-top: none;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-right: 1em;
+        padding-top: 0;
+        text-align: center;
+        background: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        
+    }
+
+    .best-for-bar::before {
+        content: "";
+        display: block;
+        min-height: 20px;
+        height: var(--bar-height, 30%);
+        width: 0;
+        flex-grow: 1;
+        border-left: 34px solid var(--blue);
+        margin-bottom: 8px;
+        border-radius: 5px;
+    }
+
+/*------ mobile size adjustments ------*/
+
+.reviews-section {
+    margin-top: 2em;
+    width: 100%;
+        p {
+            margin: 0.5em 0;
+        }
+
+}
+    .review-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: start;
+    }
+
+.review-rating {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    span {
+        font-size: 11px;
+        color: var(--gray);
+    }
+}
+.review-button {
+        width: 150px;
+        height: 40px;
+        margin: 0; 
+        background-color: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 25px;
+    }
+.review-button:hover {
+        background-color: var(--light-blue);
+        color: var(--blue);
+        cursor: pointer;
+    }
+
+
+/*------ desktop size adjustments ------*/
+@media (min-width:1024px){
+    body{
+        margin: 3em 5em;
+    }
+    .desktop-regular{
+        font-size: 16px;
+    }
+    .desktop-bigger-regular{
+        font-size: 18px;
+    }
+    .desktop-h1{
+        font-size: 28px;
+    }
+    .desktop-h2{
+        font-size: 25px;
+    }
+    .desktop-h3{
+        font-size: 23px;
+    }
+    .desktop-bigger-h1{
+        font-size: 33px;
+    }
+    .desktop-small{
+        font-size: 14px;
+    }
+    .desktop-title{
+        font-size: 40px;
+    }
+
+    .product-container{
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        > .reviews-section{
+            grid-column: 1 / -1;
+            grid-row: 2; 
+            margin-top: 3em;
+        }
+    }
+
+    .best-for-bar::before{
+        border-left: 35px solid var(--blue);
+    }
+
+    .all-reviews{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+    }
+
+}
