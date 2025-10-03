@@ -4,11 +4,13 @@ import TopRankedItem from "./assets/components/TopRankedItem";
 import ForYou from "./assets/components/ForYou";
 import HitIngredients from "./assets/components/HitIngredients";
 import Footer from "./assets/components/Footer";
+import PromoBoard from './assets/components/PromoBoard';
 
 function App () {
     return (
         <div className='App'>
             <NavBar />
+            <PromoBoard />
             <div className="TopRankSection">
                 <h3>TOP RANKED</h3>
                 <div className="TopRankingList">

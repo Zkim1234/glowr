@@ -1,13 +1,12 @@
 .App {
     display: flex;
-    gap: 1em;
     flex-direction: column;
 }
 
 .TopRankSection {
     display: flex;
     flex-direction: column;
-    margin: 1em ;
+    margin: 0 1em 1em  ;
 }
 
 .TopRankingList {
