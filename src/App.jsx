@@ -17,21 +17,21 @@ function App () {
                     <div className="Top1">
                         <TopRankedItem
                             ranking={1} 
-                            image={<img src="/larocheposay.jpg" width="75" alt="Product" />} 
+                            image={<img src="/larocheposaycleanser.jpg" width="75" alt="Product" />} 
                             brand="La Roche-Posay" 
                             product="Toleriane Hydrating Gentle Facial Cleanser" 
                             rating={4.99}
                         />
                         <TopRankedItem
                             ranking={2} 
-                            image={<img src="/larocheposay.jpg" width="75" alt="Product" />} 
+                            image={<img src="/loreal.jpg" width="75" alt="Product" />} 
                             brand="L'Oréal Paris" 
                             product="Revitalift Triple Power Moisturizer" 
                             rating={ 4.98 }
                         />
                         <TopRankedItem
                             ranking={3} 
-                            image={<img src="/larocheposay.jpg" width="75" alt="Product" />} 
+                            image={<img src="/cerave.jpg" width="75" alt="Product" />} 
                             brand="CeraVe" 
                             product="Hydrating Facial Cleanser" 
                             rating={4.96}
@@ -40,21 +40,21 @@ function App () {
                         <div className="Top4">
                         <TopRankedItem
                                 ranking={4} 
-                                image={<img src="/larocheposay.jpg" width="75" alt="Product" />} 
+                                image={<img src="/neutrogena.jpg" width="75" alt="Product" />} 
                                 brand="Neutrogena" 
                                 product="Rapid Wrinkle Repair Retinol Cream" 
                                 rating={4.89}
                             />
                             <TopRankedItem
                                 ranking={5} 
-                                image={<img src="/larocheposay.jpg" width="75" alt="Product" />} 
+                                image={<img src="/eltamd.webp" width="75" alt="Product" />} 
                                 brand="EltaMD" 
                                 product="UV Lotion Broad-Spectrum SPF 30+" 
                                 rating={4.87}
                             />
                             <TopRankedItem
                                 ranking={6} 
-                                image={<img src="/larocheposay.jpg" width="75" alt="Product" />} 
+                                image={<img src="/aveeno.jpg" width="75" alt="Product" />} 
                                 brand="Aveeno" 
                                 product="Daily Moisturizing Face Lotion" 
                                 rating={4.79}
@@ -66,20 +66,20 @@ function App () {
                 <h3>FOR YOU</h3>
                 <div className="ForYouList">
                     <ForYou 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Example Image 1" />} 
-                        description="This is a description for the first card." 
+                        image={<img src="/larocheposaycleanser.jpg" width="100" alt="Example Image 1" />} 
+                        description="La Roche-Posay Revitalift Triple Power Moisturizer" 
                     />   
                     <ForYou 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Example Image 1" />} 
-                        description="This is a description for the first card." 
+                        image={<img src="/loreal.jpg" width="100" alt="Example Image 1" />} 
+                        description="L'Oréal Paris Revitalift Triple Power Moisturizer" 
                     />   
                     <ForYou 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Example Image 1" />} 
-                        description="This is a description for the first card." 
+                        image={<img src="/cerave.jpg" width="100" alt="Example Image 1" />} 
+                        description="CeraVe Hydrating Facial Cleanser" 
                     />   
                     <ForYou 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Example Image 1" />} 
-                        description="This is a description for the first card." 
+                        image={<img src="/neutrogena.jpg" width="100" alt="Example Image 1" />} 
+                        description="Neutrogena Rapid Wrinkle Repair Retinol Cream" 
                     />    
                 </div>
             </div>
@@ -87,16 +87,16 @@ function App () {
                 <h3>HIT INGREDIENTS THIS YEAR</h3>
                 <div className="IngredientsList">
                     <HitIngredients 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Ingredient 1" />} 
-                        name="Ingredient 1"
+                        image={<img src="/retinoids.webp" width="100" alt="Ingredient 1" />} 
+                        name="Retinoids"
                     />
                     <HitIngredients 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Ingredient 1" />} 
-                        name="Ingredient 1"
+                        image={<img src="/mineralsunscreen.webp" width="100" alt="Ingredient 1" />} 
+                        name="Mineral Sunscreen"
                     />
                     <HitIngredients 
-                        image={<img src="/larocheposay.jpg" width="100" alt="Ingredient 1" />} 
-                        name="Ingredient 1"
+                        image={<img src="/vitaminc.jpeg" width="100" alt="Ingredient 1" />} 
+                        name="Vitamin C"
                     />
                 </div>
             </div>
