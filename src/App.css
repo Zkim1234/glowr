@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     gap: 2em;
-    margin: auto;
 }
 
 .Top1, .Top4 {
@@ -10,3 +9,10 @@
     gap: 1em;
     flex-direction: column;
 }
+
+.TopRankSection {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
