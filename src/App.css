@@ -22,3 +22,10 @@
     gap: 1em;
 }
 
+.IngredientsList {
+    display: flex;
+    flex-direction: row;
+    margin: 2em 4em;
+    gap: 7em;
+}
+

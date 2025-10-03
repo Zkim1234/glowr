@@ -65,3 +65,12 @@ p {
 .ForYouDescription p {
     margin: 0;
 }
+
+.Ingredient {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 0;
+    text-align: center;
+    width: 100px;
+}
