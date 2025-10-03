@@ -1,0 +1,20 @@
+.Header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1em;
+    gap: 2em;
+}
+
+.SearchBar {
+    border-radius: 78px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 17px;
+    width: 23em;
+    height: 2em;
+    font-size: 20px;
+    background: #EFEFEF;
+}
