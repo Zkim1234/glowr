@@ -45,3 +45,23 @@ p {
     display: flex;
     flex-direction: row;
 }
+
+.CardContainer {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 8em;
+    height: 14em;
+}
+
+.ForYouImage {
+    width: fit-content;
+    height: 10em;
+}
+
+.ForYouDescription p {
+    margin: 0;
+}

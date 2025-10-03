@@ -1,3 +1,9 @@
+.TopRankSection {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 .TopRankingList {
     display: flex;
     flex-direction: row;
@@ -10,9 +16,9 @@
     flex-direction: column;
 }
 
-.TopRankSection {
+.ForYouList {
     display: flex;
-    flex-direction: column;
-    margin: 0;
+    flex-direction: row;
+    gap: 1em;
 }
 

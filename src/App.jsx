@@ -1,6 +1,7 @@
+import './App.css';
 import NavBar from "./assets/components/NavBar";
 import TopRankedItem from "./assets/components/TopRankedItem";
-import './App.css';
+import ForYou from "./assets/components/ForYou";
 
 function App () {
     return (
@@ -55,8 +56,29 @@ function App () {
                                 rating={4.5}
                             />
                         </div>
+                    </div>
                 </div>
+            <div className="ForYouSection">
+                <h3>FOR YOU</h3>
+                <div className="ForYouList">
+                    <ForYou 
+                        image={<img src="/" alt="Example Image 1" />} 
+                        description="This is a description for the first card." 
+                    />   
+                    <ForYou 
+                        image={<img src="/" alt="Example Image 1" />} 
+                        description="This is a description for the first card." 
+                    />   
+                    <ForYou 
+                        image={<img src="/" alt="Example Image 1" />} 
+                        description="This is a description for the first card." 
+                    />   
+                    <ForYou 
+                        image={<img src="/" alt="Example Image 1" />} 
+                        description="This is a description for the first card." 
+                    />    
                 </div>
+            </div>
         </div>
     )
 }
