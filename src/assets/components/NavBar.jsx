@@ -5,7 +5,7 @@ function NavBar () {
 
 
         <div className='Header'>
-            <img src="/Glowr.svg" width="100" alt="GlowrLogo" />
+            <img src="/Glowr.svg" width="150" alt="GlowrLogo" />
             <div className='SearchBar'>
                 <img src="/search.svg" width="30" alt="SearchIcon" />
                 Search...
