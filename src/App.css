@@ -1,0 +1,12 @@
+.TopRankingList {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin: auto;
+}
+
+.Top1, .Top4 {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}

@@ -18,3 +18,30 @@
     font-size: 20px;
     background: #EFEFEF;
 }
+
+.RankedItem {
+    margin: 0;
+    padding: 1em 1em;
+    display: flex;
+    gap: 2em;
+    width: 20em;
+    height: fit-content;
+    border-radius: 14px;
+    background: #FAFAFA;
+}
+
+.RankingAndImg {
+    display: flex;
+    flex-direction: row;
+    gap: 0.50em;
+}
+
+
+p {
+    margin-top: 0;
+}
+
+.Rating {
+    display: flex;
+    flex-direction: row;
+}
