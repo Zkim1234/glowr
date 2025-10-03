@@ -13,7 +13,7 @@ function TopRankedItem ({ranking, image, brand, product, rating}) {
                 <p className="BrandName">{brand}</p>
                 <p className="ProductName">{product}</p>
                 <div className="Rating">
-                    <img src="/" width="100" alt="Star" />
+                    <img src="/" width="20" alt="Star" />
                     <p>{rating}</p>
                 </div>
             </div>

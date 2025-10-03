@@ -2,29 +2,32 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 5em;
     padding: 1em;
     gap: 2em;
 }
 
 .SearchBar {
     border-radius: 78px;
+    border: none;
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 5px 17px;
-    width: 23em;
-    height: 2em;
+    padding: 1em;
+    width: 20em;
+    height: 1.5em;
     font-size: 20px;
+    font-weight: normal;
     background: #EFEFEF;
 }
 
 .RankedItem {
     margin: 0;
-    padding: 1em 1em;
+    padding: 0.5em 1em;
     display: flex;
-    gap: 2em;
-    width: 20em;
+    justify-content: center;
+    gap: 0.5em;
+    width: 15em;
     height: fit-content;
     border-radius: 14px;
     background: #FAFAFA;
@@ -33,17 +36,28 @@
 .RankingAndImg {
     display: flex;
     flex-direction: row;
-    gap: 0.50em;
+    gap: 0.5em;
+}
+
+.BrandName {
+    color: #A4A4A4;
+    margin-bottom: 0;
+}
+
+.Ranking {
+    font-weight: bold;
 }
 
 
 p {
-    margin-top: 0;
+    margin: 5px 0;
+    font-size: 14px;
 }
 
 .Rating {
     display: flex;
     flex-direction: row;
+    gap: 0.5em;
 }
 
 .CardContainer {
@@ -69,8 +83,8 @@ p {
 .Ingredient {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    margin: 0;
+    gap: 0.5em;
+    margin: 0 auto;
     text-align: center;
     width: 100px;
 }

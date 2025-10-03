@@ -1,19 +1,29 @@
+.App {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+
 .TopRankSection {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 1em ;
 }
 
 .TopRankingList {
     display: flex;
     flex-direction: row;
-    gap: 2em;
+    gap: 1em;
 }
 
 .Top1, .Top4 {
     display: flex;
     gap: 1em;
     flex-direction: column;
+}
+
+.ForYouSection {
+    margin: 1em ;
 }
 
 .ForYouList {
@@ -25,7 +35,20 @@
 .IngredientsList {
     display: flex;
     flex-direction: row;
-    margin: 2em 4em;
-    gap: 7em;
+    margin: 2em 0;
+    gap: 2em;
 }
 
+.HitIngredientsSection {
+    margin: 1em ;
+}
+
+Footer {
+    margin: 1em 0;
+    padding: 2em;
+    background: #6F97AD;
+    width: 100%;
+    height: 2em;
+    color: white;
+    text-align: center;
+}
