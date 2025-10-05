@@ -15,7 +15,7 @@ html {
   scrollbar-width: none;
 }
 
-.review-container {
+.reviewContainer {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -30,7 +30,7 @@ html {
   color: #546060;
   font-size: 16px;
 }
-.close-btn {
+.closeBtn {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -47,23 +47,23 @@ html {
   justify-content: center;
 }
 
-.close-btn:hover {
+.closeBtn:hover {
   background-color: #6a8a9f;
 }
 
 /* Header */
-.review-header {
+.reviewHeader {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 20px;
   color: #546060;
 }
 
-.review-header h2 {
+.reviewHeader h2 {
   font-size: 20px;
 }
 
-.product-section {
+.productSection {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -73,29 +73,22 @@ html {
   color: #546060;
 }
 
-.product-title {
+.productImage {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+.productTitle {
   font-size: 18px;
 }
 
 img {
   margin-top: 10px;
-  width: 200px;
-  height: 100%;
+  width: 280px;
+  height: auto;
   border-radius: 8px;
   object-fit: cover;
-}
-
-.image-placeholder {
-  width: 200px;
-  background: #f0f0f0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-info {
-  text-align: left;
 }
 
 .brand {
@@ -127,8 +120,26 @@ img {
 }
 
 /* FORM SECTION */
+.formSection {
+  background: #e7e7e733;
+  padding: 20px;
+  border-radius: 8px;
+}
 
-.title-section input {
+.titleSection {
+  margin-bottom: 25px;
+}
+
+.titleSection input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #3d535f;
+  border-radius: 18px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.titleInput {
   width: 100%;
   padding: 10px;
   border: 1px solid #3d535f;
@@ -138,18 +149,18 @@ img {
 }
 
 /* SKIN TYPE SECTION */
-.skin-type-section {
+.skinTypeSection {
   margin-bottom: 25px;
 }
 
-.skin-type-buttons {
+.skinTypeButtons {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 8px;
 }
 
-.skin-type-btn {
+.skinTypeBtn {
   flex: 1;
   min-width: calc(33.333% - 6px);
   padding: 10px 12px;
@@ -162,7 +173,7 @@ img {
   transition: all 0.2s;
 }
 
-.skin-type-btn:hover {
+.skinTypeBtn:hover {
   border-color: #464545;
 }
 
@@ -174,11 +185,16 @@ img {
 
 /* ADD PHOTO SECTION */
 
-.photo-section {
+.photoSection {
   margin-bottom: 25px;
 }
 
-.upload-btn {
+.photoUpload {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.uploadBtn {
   width: 120px;
   height: 120px;
   border: 3px solid #7a9bb0;
@@ -192,16 +208,16 @@ img {
   justify-content: center;
 }
 
-.upload-btn:hover {
+.uploadBtn:hover {
   background-color: rgba(139, 189, 223, 0.2);
 }
 
 /* ADD REVIEW SECTION */
-.review-section {
+.reviewSection {
   margin-bottom: 30px;
 }
 
-.review-input {
+.reviewInput {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
@@ -214,7 +230,7 @@ img {
   font-size: 16px;
 }
 
-.review-input::placeholder {
+.reviewInput::placeholder {
   color: #a4a8a8;
   font-family: initial;
 }
@@ -223,7 +239,7 @@ input::placeholder {
   font-family: initial;
 }
 
-.post-review-btn {
+.postReviewBtn {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -240,7 +256,7 @@ input::placeholder {
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
 }
 
-.post-review-btn:hover {
+.postReviewBtn:hover {
   background: #6a8a9f;
 }
 
@@ -252,33 +268,36 @@ input::placeholder {
     max-width: 800px;
   }
 
-  .review-container {
+  .reviewContainer {
     padding: 30px;
     border-radius: 35px;
     overflow-y: visible;
   }
 
-  .close-btn {
+  .closeBtn {
     top: 20px;
     left: 25px;
     width: 40px;
     height: 40px;
     font-size: 18px;
   }
-  .review-header h2 {
+  .reviewHeader h2 {
     font-size: 24px;
     margin-top: 20px;
     margin-bottom: 0px;
   }
 
-  .product-section {
+  .productSection {
     flex-direction: row;
     gap: 25px;
     padding: 10px;
   }
 
-  .product-title {
+  .productTitle {
     font-size: 25px;
+  }
+  .productImage {
+    align-self: stretch;
   }
 
   img {
@@ -297,22 +316,22 @@ input::placeholder {
     margin-bottom: 20px;
   }
 
-  .form-section {
+  .formSection {
     padding: 15px;
   }
 
-  .title-section input {
+  .titleSection input {
     width: 35%;
     padding: 12px;
     font-size: 14px;
   }
 
-  .skin-type-buttons {
+  .skinTypeButtons {
     flex-wrap: nowrap;
     gap: 5px;
   }
 
-  .skin-type-btn {
+  .skinTypeBtn {
     flex-wrap: nowrap;
     gap: 5px;
     flex: none;
@@ -322,19 +341,19 @@ input::placeholder {
     font-weight: 700;
   }
 
-  .upload-btn {
+  .uploadBtn {
     width: 150px;
     height: 191px;
     font-size: 45px;
   }
 
-  .review-input {
+  .reviewInput {
     min-width: 80%;
     height: 100px;
     font-size: 14px;
   }
 
-  .post-review-btn {
+  .postReviewBtn {
     width: 50%;
     padding: 14px;
   }

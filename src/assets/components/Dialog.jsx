@@ -1,33 +1,33 @@
-import "./dialog.css";
+import styles from "./dialog.module.css";
 
 function skinToggle(e) {
-  e.currentTarget.classList.toggle("skinToggle");
+  e.currentTarget.classList.toggle(styles.skinToggle);
 }
 
 function Dialog({ onClose }) {
   return (
-    <div className="review-container">
-      <button className="close-btn" onClick={onClose}>
+    <div className={styles.reviewContainer}>
+      <button className={styles.closeBtn} onClick={onClose}>
         ×
       </button>
-      <div className="review-header">
+      <div className={styles.reviewHeader}>
         <h2>Write a Review</h2>
       </div>
 
-      <div className="product-section">
-        <div className="product-image">
+      <div className={styles.productSection}>
+        <div className={styles.productImage}>
           <img
             src="https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-laroche-posay-master-catalog/default/dw8b2f3571/product/March%202023%20packshot%20updates/Toleriane_HydratingGentleCleanser_400ml-Pump.jpg?sw=698&sh=698&sm=cut&sfrm=jpg&q=70"
             alt="product image"
           />
         </div>
 
-        <div className="product-info">
-          <h2 className="product-title">
+        <div className={styles.productInfo}>
+          <h2 className={styles.productTitle}>
             Toleriane Hydrating<br></br> Gentle Facial Cleanser
           </h2>
-          <p className="brand">La Roche-Posay</p>
-          <p className="description">
+          <p className={styles.brand}>La Roche-Posay</p>
+          <p className={styles.description}>
             From the skincare brand recommended by 100,000 dermatologists
             worldwide, Toleriane Hydrating Gentle Cleanser is a daily face wash
             for normal to dry, sensitive skin. Formulated with La Roche-Posay
@@ -36,9 +36,9 @@ function Dialog({ onClose }) {
             maintaining skin's natural moisture barrier and pH.
           </p>
 
-          <div className="rating-section">
-            <h3 className="titles">Rate this product</h3>
-            <div className="stars">
+          <div className={styles.ratingSection}>
+            <h3 className={styles.titles}>Rate this product</h3>
+            <div className={styles.stars}>
               <span>☆</span>
               <span>☆</span>
               <span>☆</span>
@@ -49,43 +49,51 @@ function Dialog({ onClose }) {
         </div>
       </div>
 
-      <div className="form-section">
-        <div className="title-section">
-          <h3 className="titles">Make a title</h3>
-          <input className="title-input" type="text" placeholder="Title..." />
+      <div className={styles.formSection}>
+        <div className={styles.titleSection}>
+          <h3 className={styles.titles}>Make a title</h3>
+          <input
+            className={styles.titleInput}
+            type="text"
+            placeholder="Title..."
+          />
         </div>
 
-        <div className="skin-type-section">
-          <h3 className="titles">What kind of skin type do you have?</h3>
-          <div className="skin-type-buttons">
-            <button className="skin-type-btn" onClick={skinToggle}>
+        <div className={styles.skinTypeSection}>
+          <h3 className={styles.titles}>What kind of skin type do you have?</h3>
+          <div className={styles.skinTypeButtons}>
+            <button className={styles.skinTypeBtn} onClick={skinToggle}>
               Oily
             </button>
-            <button className="skin-type-btn" onClick={skinToggle}>
+            <button className={styles.skinTypeBtn} onClick={skinToggle}>
               Combination
             </button>
-            <button className="skin-type-btn" onClick={skinToggle}>
+            <button className={styles.skinTypeBtn} onClick={skinToggle}>
               Dry
             </button>
           </div>
         </div>
 
-        <div className="photo-section">
-          <h3 className="titles">Add a photo</h3>
-          <div className="photo-upload">
-            <button className="upload-btn">+</button>
+        <div className={styles.photoSection}>
+          <h3 className={styles.titles}>Add a photo</h3>
+          <div className={styles.photoUpload}>
+            <button className={styles.uploadBtn}>+</button>
           </div>
         </div>
 
-        <div className="review-section">
-          <h3 className="titles">Add a review</h3>
+        <div className={styles.reviewSection}>
+          <h3 className={styles.titles}>Add a review</h3>
           <textarea
-            className="review-input"
+            className={styles.reviewInput}
             placeholder="Add a review..."
           ></textarea>
         </div>
 
-        <button type="submit" className="post-review-btn" onClick={onClose}>
+        <button
+          type="submit"
+          className={styles.postReviewBtn}
+          onClick={onClose}
+        >
           Post Review
         </button>
       </div>
