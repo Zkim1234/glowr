@@ -126,7 +126,7 @@ img {
   line-height: 1;
 }
 
-/* form section */
+/* FORM SECTION */
 
 .title-section input {
   width: 100%;
@@ -137,6 +137,7 @@ img {
   box-sizing: border-box;
 }
 
+/* SKIN TYPE SECTION */
 .skin-type-section {
   margin-bottom: 25px;
 }
@@ -171,6 +172,8 @@ img {
   border-color: #3d535f;
 }
 
+/* ADD PHOTO SECTION */
+
 .photo-section {
   margin-bottom: 25px;
 }
@@ -193,6 +196,7 @@ img {
   background-color: rgba(139, 189, 223, 0.2);
 }
 
+/* ADD REVIEW SECTION */
 .review-section {
   margin-bottom: 30px;
 }
@@ -240,7 +244,7 @@ input::placeholder {
   background: #6a8a9f;
 }
 
-/* Desktop Enhancements */
+/* Desktop */
 @media (min-width: 769px) {
   .modal {
     position: relative;
