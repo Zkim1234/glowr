@@ -51,6 +51,7 @@ html {
   background-color: #6a8a9f;
 }
 
+/* Header */
 .review-header {
   text-align: center;
   margin-top: 15px;
@@ -110,6 +111,8 @@ img {
   margin: 0 0 15px 0;
 }
 
+/* Rating */
+
 .stars {
   display: flex;
   gap: 8px;
@@ -123,7 +126,7 @@ img {
   line-height: 1;
 }
 
-/* More Questions */
+/* form section */
 
 .title-section input {
   width: 100%;
