@@ -154,6 +154,15 @@ p{
         border-radius: 5px;
     }
 
+
+    .details-button{
+        border: none; 
+        background: none;
+        text-decoration: underline;
+        color: var(--blue);
+        font-size: 16px;
+        cursor: pointer;
+    }
 /*------ mobile size adjustments ------*/
 
 .reviews-section {
