@@ -13,4 +13,5 @@ function ForYou({image, description }) {
     )
 }
 
+
 export default ForYou;

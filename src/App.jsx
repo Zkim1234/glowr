@@ -64,6 +64,29 @@ function App () {
                                 rating={4.79}
                             />
                         </div>
+                        <div className="Top4">
+                        <TopRankedItem
+                                ranking={7} 
+                                image={<img src="/caudalie.webp" width="75" alt="Product" />} 
+                                brand="Caudalie" 
+                                product="Vinoperfect Radiance Serum Vitamin C..." 
+                                rating={4.55}
+                            />
+                            <TopRankedItem
+                                ranking={8} 
+                                image={<img src="/tatcha.avif" width="75" alt="Product" />} 
+                                brand="Tatcha" 
+                                product="Clarifying Cleanse + Hydrate Duo" 
+                                rating={4.51}
+                            />
+                            <TopRankedItem
+                                ranking={9} 
+                                image={<img src="/fenty.webp" width="65" alt="Product" />} 
+                                brand="Fenty Beauty" 
+                                product="Butta Drop Refill Whipped Oil Body..." 
+                                rating={4.46}
+                            />
+                        </div>
                 </div>
             </div>
             <div className="ForYouSection">
@@ -85,6 +108,10 @@ function App () {
                         image={<img src="/neutrogena.jpg" width="100" alt="Example Image 1" />} 
                         description="Neutrogena Rapid Wrinkle Repair Retinol Cream" 
                     />    
+                    <ForYou 
+                        image={<img src="/caudalie.webp" width="100" alt="Example Image 1" />} 
+                        description="Caudalie Vinoperfect Radiance Serum Vitamin C.." 
+                    />  
                 </div>
             </div>
             <div className="HitIngredientsSection">
