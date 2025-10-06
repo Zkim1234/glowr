@@ -9,7 +9,9 @@ import PromoBoard from './assets/components/PromoBoard';
 function App () {
     return (
         <div className='App'>
-            <NavBar />
+            <div className='Navbar'>
+                <NavBar />
+            </div>
             <div className="PromoBoard">
                 <PromoBoard />
             </div>

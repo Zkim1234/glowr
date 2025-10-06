@@ -1,6 +1,10 @@
 .App {
     display: flex;
     flex-direction: column;
+
+    .NavBar {
+        margin: 0 20em;
+    }
 }
 
 /* .PageContainer {
@@ -83,5 +87,8 @@
 
 /* Mobile */
 @media screen and (min-width: 600px) {
-
+    .TopRankingList {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
   }
