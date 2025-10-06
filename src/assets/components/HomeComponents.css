@@ -25,7 +25,6 @@
     margin: 0;
     padding: 0.5em 1em;
     display: flex;
-    justify-content: center;
     gap: 0.5em;
     width: 15em;
     height: fit-content;
@@ -92,4 +91,76 @@ p {
 
 .PromoBoard {
     margin: 0;
+    display: flex;
+    justify-content: center;
 }
+
+@media screen and (min-width: 1024px) {
+    .PromoBoard img {
+        width: 100%;
+    }
+
+    .Header img {
+        width: 15%;
+        padding-bottom: 1em;
+    }
+    
+    .SearchBar {
+        padding: 1em;
+        width: 30em;
+        height: 3em;
+        font-size: 30px;
+        font-weight: normal;
+    }
+
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .SearchBar {
+        width: 65em;
+    }
+
+    .RankedItem {
+        margin: 0;
+        padding: 0.5em 1em;
+        gap: 0.5em;
+        width: 15em;
+        height: fit-content;
+        border-radius: 14px;
+        background: #FAFAFA;
+    }
+
+    .RankedItem p {
+        font-size: 25px;
+    }
+
+    .RankingAndImg img{
+        width: 150px;
+    }
+
+    .CardContainer img {
+        width: 250px;
+    }
+
+    .ForYouDescription p {
+        font-size: 25px;
+    }
+
+    .Ingredient img {
+        width: 250px;
+        display: flex;
+        margin: 0 auto;
+    }
+}
+
+
+/* Mobile */
+@media screen and (min-width: 600px) {
+    .PromoBoard img {
+        width: 100%;
+    }
+  }
+
+
+

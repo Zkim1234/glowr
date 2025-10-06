@@ -10,7 +10,9 @@ function App () {
     return (
         <div className='App'>
             <NavBar />
-            <PromoBoard />
+            <div className="PromoBoard">
+                <PromoBoard />
+            </div>
             <div className="TopRankSection">
                 <h3>TOP RANKED</h3>
                 <div className="TopRankingList">
@@ -60,8 +62,8 @@ function App () {
                                 rating={4.79}
                             />
                         </div>
-                    </div>
                 </div>
+            </div>
             <div className="ForYouSection">
                 <h3>FOR YOU</h3>
                 <div className="ForYouList">
@@ -87,17 +89,18 @@ function App () {
                 <h3>HIT INGREDIENTS THIS YEAR</h3>
                 <div className="IngredientsList">
                     <HitIngredients 
-                        image={<img src="/retinoids.webp" width="100" alt="Ingredient 1" />} 
+                        image={<img src="/retinoids.png" width="100" alt="Ingredient 1" />} 
                         name="Retinoids"
                     />
                     <HitIngredients 
-                        image={<img src="/mineralsunscreen.webp" width="100" alt="Ingredient 1" />} 
+                        image={<img src="/sunscreen.png" width="100" alt="Ingredient 1" />} 
                         name="Mineral Sunscreen"
                     />
                     <HitIngredients 
-                        image={<img src="/vitaminc.jpeg" width="100" alt="Ingredient 1" />} 
+                        image={<img src="/vitaminc.png" width="100" alt="Ingredient 1" />} 
                         name="Vitamin C"
                     />
+                    
                 </div>
             </div>
             {/* <Footer /> */}
