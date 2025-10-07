@@ -1,7 +1,5 @@
-import "./Product.css";
+import "./product.css";
 import React from "react";
-import Modal from "../components/Modal";
-import Dialog from "../components/Dialog";
 
 function Product({ onBackToHome }) {
   const bestForBars = [
