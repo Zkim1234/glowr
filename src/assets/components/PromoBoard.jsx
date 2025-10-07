@@ -1,11 +1,11 @@
-import "./HomeComponents.css"
+import "./HomeComponents.css";
 
-function PromoBoard () {
-    return (
-        <div className="Promotion">
-            <img src="/promoBoard.webp" width="500" alt="Advertisement"></img>
-        </div>
-    );
+function PromoBoard() {
+  return (
+    <div className="PromoBoard">
+      <img src="/promoBoard.webp" alt="Advertisement"></img>
+    </div>
+  );
 }
 
 export default PromoBoard;

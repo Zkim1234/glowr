@@ -1,12 +1,27 @@
 import "./App.css";
+import { useState } from "react";
 import NavBar from "./assets/components/NavBar";
 import TopRankedItem from "./assets/components/TopRankedItem";
 import ForYou from "./assets/components/ForYou";
 import HitIngredients from "./assets/components/HitIngredients";
-import Footer from "./assets/components/Footer";
 import PromoBoard from "./assets/components/PromoBoard";
+import Product from "./assets/pages/Product";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("home");
+
+  const navigateToProduct = () => {
+    setCurrentPage("product");
+  };
+
+  const navigateToHome = () => {
+    setCurrentPage("home");
+  };
+
+  if (currentPage === "product") {
+    return <Product onBackToHome={navigateToHome} />;
+  }
+
   return (
     <div className="App">
       <div className="Navbar">
@@ -27,6 +42,7 @@ function App() {
               brand="La Roche-Posay"
               product="Toleriane Hydrating Gentle Facial Cleanser"
               rating={4.99}
+              onProductClick={navigateToProduct}
             />
             <TopRankedItem
               ranking={2}
@@ -34,6 +50,7 @@ function App() {
               brand="L'Oréal Paris"
               product="Revitalift Triple Power Moisturizer"
               rating={4.98}
+              onProductClick={navigateToProduct}
             />
             <TopRankedItem
               ranking={3}
@@ -41,6 +58,7 @@ function App() {
               brand="CeraVe"
               product="Hydrating Facial Cleanser"
               rating={4.96}
+              onProductClick={navigateToProduct}
             />
           </div>
           <div className="Top4">
@@ -50,6 +68,7 @@ function App() {
               brand="Neutrogena"
               product="Rapid Wrinkle Repair Retinol Cream"
               rating={4.89}
+              onProductClick={navigateToProduct}
             />
             <TopRankedItem
               ranking={5}
@@ -57,6 +76,7 @@ function App() {
               brand="EltaMD"
               product="UV Lotion Broad-Spectrum SPF 30+"
               rating={4.87}
+              onProductClick={navigateToProduct}
             />
             <TopRankedItem
               ranking={6}
@@ -64,6 +84,7 @@ function App() {
               brand="Aveeno"
               product="Daily Moisturizing Face Lotion"
               rating={4.79}
+              onProductClick={navigateToProduct}
             />
           </div>
           <div className="Top4">
@@ -73,6 +94,7 @@ function App() {
               brand="Caudalie"
               product="Vinoperfect Radiance Serum Vitamin C..."
               rating={4.55}
+              onProductClick={navigateToProduct}
             />
             <TopRankedItem
               ranking={8}
@@ -80,6 +102,7 @@ function App() {
               brand="Tatcha"
               product="Clarifying Cleanse + Hydrate Duo"
               rating={4.51}
+              onProductClick={navigateToProduct}
             />
             <TopRankedItem
               ranking={9}
@@ -87,12 +110,13 @@ function App() {
               brand="Fenty Beauty"
               product="Butta Drop Refill Whipped Oil Body..."
               rating={4.46}
+              onProductClick={navigateToProduct}
             />
           </div>
         </div>
       </div>
       <div className="ForYouSection">
-        <h3>FOR YOU</h3>
+        <h3>For You</h3>
         <div className="ForYouList">
           <ForYou
             image={
@@ -103,26 +127,36 @@ function App() {
               />
             }
             description="La Roche-Posay Revitalift Triple Power Moisturizer"
+            brand="La Roche-Posay"
+            onProductClick={navigateToProduct}
           />
           <ForYou
             image={<img src="/loreal.jpg" width="100" alt="Example Image 1" />}
             description="L'Oréal Paris Revitalift Triple Power Moisturizer"
+            brand="L'Oréal Paris"
+            onProductClick={navigateToProduct}
           />
           <ForYou
             image={<img src="/cerave.jpg" width="100" alt="Example Image 1" />}
             description="CeraVe Hydrating Facial Cleanser"
+            brand="CeraVe"
+            onProductClick={navigateToProduct}
           />
           <ForYou
             image={
               <img src="/neutrogena.jpg" width="100" alt="Example Image 1" />
             }
             description="Neutrogena Rapid Wrinkle Repair Retinol Cream"
+            brand="Neutrogena"
+            onProductClick={navigateToProduct}
           />
           <ForYou
             image={
               <img src="/caudalie.webp" width="100" alt="Example Image 1" />
             }
             description="Caudalie Vinoperfect Radiance Serum Vitamin C.."
+            brand="Caudalie"
+            onProductClick={navigateToProduct}
           />
         </div>
       </div>
@@ -143,7 +177,9 @@ function App() {
           />
         </div>
       </div>
-      {/* <Footer /> */}
+      <footer className="Footer">
+        <p>© 2024 Glowr. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
