@@ -1,4 +1,6 @@
 import "./product.css";
+import Modal from "../components/Modal";
+import Dialog from "../components/Dialog";
 import React from "react";
 
 function Product({ onBackToHome }) {
