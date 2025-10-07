@@ -1,0 +1,174 @@
+.Header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 3.5em 0 0;
+    padding: 1em;
+    gap: 1em;
+}
+
+.SearchBar {
+    border-radius: 78px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 1em;
+    width: 20em;
+    height: 1.5em;
+    font-size: 20px;
+    font-weight: normal;
+    background: #EFEFEF;
+}
+
+.RankedItem {
+    margin: 0;
+    padding: 0.5em 1em;
+    display: flex;
+    gap: 0.5em;
+    width: 100%;
+    max-width: 15em;
+    min-width: 12em;
+    height: fit-content;
+    border-radius: 14px;
+    background: #FAFAFA;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 1;
+}
+
+.RankedItem:hover {
+    background: #F0F0F0;
+}
+
+.RankedItem:focus {
+    outline: 2px solid #6F97AD;
+    outline-offset: 2px;
+}
+
+.RankingAndImg {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.BrandName {
+    color: #A4A4A4;
+    margin-bottom: 0;
+}
+
+.Ranking {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.Rating {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.CardContainer {
+    /* border: 1px solid #304151; */
+    background: #FAFAFA;
+    border-radius: 5px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 8em;
+    height: 12em;
+}
+
+.ForYouImage {
+    width: fit-content;
+    height: 10em;
+}
+
+.ForYouDescription p {
+    margin: 0;
+}
+
+.Ingredient {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin: 0 auto;
+    text-align: center;
+    width: 100px;
+}
+
+.PromoBoard {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    .SearchBar {
+        width: 50em;
+        font-size: 30px;
+    }
+
+    .RankedItem {
+        margin: 0;
+        padding: 0.5em 1em;
+        gap: 0.5em;
+        width: 15em;
+        height: fit-content;
+        border-radius: 14px;
+        background: #FAFAFA;
+    }
+
+    .RankedItem p {
+        font-size: 25px;
+    }
+
+    .RankingAndImg img{
+        width: 150px;
+    }
+
+    .CardContainer img {
+        width: 240px;
+    }
+
+    .ForYouDescription p {
+        font-size: 25px;
+    }
+
+    .Ingredient img {
+        width: 250px;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .PromoBoard img {
+        width: 80%;
+        max-width: 1200px;
+        height: auto;
+    }
+}
+
+
+/* Mobile */
+@media screen and (min-width: 400px) {
+    .PromoBoard img {
+        width: 100%;
+    }
+
+    
+  }
+
+
+
