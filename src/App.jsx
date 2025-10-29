@@ -118,7 +118,7 @@ function App() {
         </div>
       </div>
       <footer className="Footer">
-        <p>© 2024 Glowr. All rights reserved.</p>
+        <p>© 2025 Glowr. All rights reserved.</p>
       </footer>
     </div>
   );
