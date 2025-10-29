@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "brand": "La Roche-Posay",
+    "name": "Toleriane Hydrating Gentle Facial Cleanser",
+    "description": "Toleriane Hydrating Gentle Cleanser is a daily face wash for normal to dry, sensitive skin. Formulated with La Roche-Posay prebiotic thermal spring water, niacinamide, and ceramide-3, this face wash gently cleanses skin of dirt, makeup, and impurities while maintaining skin's natural moisture barrier and pH.",
+    "shortDescription": "Toleriane Hydrating Gentle Cleanser is a daily face wash for normal to dry, sensitive skin. Formulated with La Roche-Posay prebiotic thermal spring water, niacinamide, and ceramide-3...",
+    "image": "/larocheposaycleanser.jpg",
+    "rating": 4.5,
+    "reviewCount": "560,385",
+    "harmfulIngredients": ["Sodium Lauryl Sulfate", "Parabens", "Fragrance"],
+    "potentialAllergens": 0,
+    "ingredients": "Aqua / Water / Eau (La Roche-Posay Prebiotic Thermal Water), Glycerin, Pentaerythrityl Tetraethylhexanoate, Propylene Glycol, Ammonium Polyacryloyldimethyl Taurate, Polysorbate 60, Ceramide Np",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "90%" },
+      { "label": "Combination Skin", "height": "50%" },
+      { "label": "Oily Skin", "height": "20%" },
+      { "label": "Normal Skin", "height": "80%" },
+      { "label": "Sensitive Skin", "height": "80%" }
+    ]
+  },
+  {
+    "id": 2,
+    "brand": "L'Oreal Paris",
+    "name": "Revitalift Triple Power Anti-Aging Moisturizer",
+    "description": "An advanced anti-aging moisturizer that targets wrinkles, firms skin, and restores radiance. This powerful formula combines Pro-Retinol, Vitamin C, and Hyaluronic Acid to deliver visible results in just one week.",
+    "shortDescription": "An advanced anti-aging moisturizer that targets wrinkles, firms skin, and restores radiance. This powerful formula combines Pro-Retinol, Vitamin C, and Hyaluronic Acid...",
+    "image": "/loreal.jpg",
+    "rating": 4.2,
+    "reviewCount": "324,156",
+    "harmfulIngredients": ["Fragrance", "Alcohol Denat"],
+    "potentialAllergens": 2,
+    "ingredients": "Aqua / Water, Glycerin, Dimethicone, Isopropyl Palmitate, Aluminum Starch Octenylsuccinate, Cetyl Alcohol, Behenyl Alcohol, Phenoxyethanol, Triethanolamine, Carbomer",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "85%" },
+      { "label": "Combination Skin", "height": "70%" },
+      { "label": "Oily Skin", "height": "30%" },
+      { "label": "Normal Skin", "height": "90%" },
+      { "label": "Sensitive Skin", "height": "40%" }
+    ]
+  },
+  {
+    "id": 3,
+    "brand": "CeraVe",
+    "name": "Hydrating Cream-to-Foam Cleanser",
+    "description": "Facial Cleansers are designed to remove dirt, oil, pollution, daily sunscreen and makeup, but it’s important to choose a formula that addresses the needs of specific skin types without disrupting the skin’s natural barrier. Those with dry skin can enjoy the benefits of both a cream cleanser that hydrates and a foaming formula that provides a refreshing skin feel—without having to choose between the two. Developed with dermatologists, CeraVe Hydrating Cream-to-Foam Cleanser begins as a cream before transforming to a rich soft foam when you begin to lather it on the skin with water. CeraVe Hydrating Cream-to-Foam effectively removes dirt,oil,daily suncreen and even long-wear facial makeup without stripping the skin’s natural moisture or leaving it feeling tight and dry. This gentle, fragrance-free formula features three essential Ceramides, amino acids and Hyaluronic Acid, which work together to help maintain the skin barrier and lock in moisture.",
+    "shortDescription": "CeraVe Hydrating Cream-to-Foam Cleanser is a gentle, non-foaming cleanser that effectively removes dirt, oil, and makeup without stripping the skin of its natural moisture. Formulated with essential ceramides...",
+    "image": "/cerave.jpg",
+    "rating": 4.6,
+    "reviewCount": "450,789",
+    "harmfulIngredients": ["Sodium Lauryl Sulfate", "Fragrance"],
+    "potentialAllergens": 1,
+    "ingredients": "Water, Glycerin, Cetearyl Alcohol, Propylene Glycol, Ceramide NP, Ceramide AP, Ceramide EOP, Hyaluronic Acid, Cholesterol, Phytosphingosine",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "95%" },
+      { "label": "Combination Skin", "height": "60%" },
+      { "label": "Oily Skin", "height": "25%" },
+      { "label": "Normal Skin", "height": "85%" },
+      { "label": "Sensitive Skin", "height": "75%" }
+    ]
+  },
+  {
+    "id": 4,
+    "brand": "Neutrogena",
+    "name": "Rapid Wrinkle Repair Retinol Pro+ Eye Cream",
+    "description": "The Neutrogena® + Rapid Wrinkle Repair® Retinol Pro+ Eye Cream hydrates aging skin and targets dark circles and crows feet. From a dermatologist recommended brand, this retinol eye cream uses anti aging technology to improve skin's appearance. This product is available in a 14-gram jar of eye cream.",
+    "shortDescription": "A powerful retinol eye cream that targets dark circles and crow's feet.",
+    "image": "/neutrogena.jpg",
+    "rating": 4.5,
+    "reviewCount": "123,456",
+    "harmfulIngredients": ["Fragrance", "Alcohol Denat"],
+    "potentialAllergens": 2,
+    "ingredients": "Water, Glycerin, Dimethicone, Isopropyl Palmitate, Aluminum Starch Octenylsuccinate, Cetyl Alcohol, Behenyl Alcohol, Phenoxyethanol, Triethanolamine, Carbomer",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "90%" },
+      { "label": "Combination Skin", "height": "50%" },
+      { "label": "Oily Skin", "height": "20%" },
+      { "label": "Normal Skin", "height": "80%" },
+      { "label": "Sensitive Skin", "height": "80%" }
+    ]
+  },
+  {
+    "id": 5,
+    "brand": "EltaMD",
+    "name": "UV Lotion Broad-Spectrum SPF 35",
+    "description": "EltaMD UV Lotion Broad-Spectrum SPF 35 is a lightweight, moisturizing sunscreen that provides broad-spectrum protection against harmful UVA and UVB rays. Formulated with zinc oxide and octinoxate, this lotion is ideal for daily use on all skin types, including sensitive skin.",
+    "shortDescription": "A lightweight, moisturizing sunscreen with broad-spectrum protection.",
+    "image": "/eltamd.webp",
+    "rating": 4.6,
+    "reviewCount": "345,678",
+    "harmfulIngredients": ["Fragrance", "Parabens"],
+    "potentialAllergens": 1,
+    "ingredients": "Water, Zinc Oxide, Octinoxate, Glycerin, Cetearyl Alcohol, Dimethicone, Tocopheryl Acetate, Aloe Barbadensis Leaf Juice",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "88%" },
+      { "label": "Combination Skin", "height": "60%" },
+      { "label": "Oily Skin", "height": "35%" },
+      { "label": "Normal Skin", "height": "85%" },
+      { "label": "Sensitive Skin", "height": "50%" }
+    ]
+  },
+  {
+    "id": 6,
+    "brand": "Alveeno",
+    "name": "Daily Moisturizing Face Cream",
+    "description": "Aveeno Daily Moisturizing Face Cream is a lightweight, non-greasy moisturizer that provides 24-hour hydration. Formulated with Colloidal Oatmeal and rich emollients, this cream helps to soothe and protect dry skin while improving its overall texture.",
+    "shortDescription": "A lightweight, non-greasy moisturizer that provides 24-hour hydration.",
+    "image": "/aveeno.jpg",
+    "rating": 4.5,
+    "reviewCount": "345,678",
+    "harmfulIngredients": ["Fragrance", "Parabens"],
+    "potentialAllergens": 1,
+    "ingredients": "Water, Glycerin, Dimethicone, Isopropyl Palmitate, Aluminum Starch Octenylsuccinate, Cetyl Alcohol, Behenyl Alcohol, Phenoxyethanol, Triethanolamine, Carbomer",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "92%" },
+      { "label": "Combination Skin", "height": "55%" },
+      { "label": "Oily Skin", "height": "25%" },
+      { "label": "Normal Skin", "height": "80%" },
+      { "label": "Sensitive Skin", "height": "70%" }
+    ]
+  },
+  {
+    "id": 7,
+    "brand": "Caudalie",
+    "name": "Vinoperfect Radiance Serum Vitamin C Alternative",
+    "description": "Caudalie's Vinoperfect Radiance Serum is a powerful vitamin C alternative that brightens and evens skin tone. Formulated with Viniferine, a natural ingredient derived from grapevine sap, this serum reduces the appearance of dark spots and enhances skin radiance.",
+    "shortDescription": "A powerful vitamin C alternative that brightens and evens skin tone.",
+    "image": "/caudalie.webp",
+    "rating": 4.7,
+    "reviewCount": "210,345",
+    "harmfulIngredients": ["Fragrance", "Parabens"],
+    "potentialAllergens": 1,
+    "ingredients": "Aqua/Water/Eau, Glycerin, Propanediol, Viniferine, Pentylene Glycol, Polyglyceryl-6 Distearate, Caprylic/Capric Triglyceride, Squalane, Butylene Glycol, Sodium Hyaluronate",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "85%" },
+      { "label": "Combination Skin", "height": "65%" },
+      { "label": "Oily Skin", "height": "30%" },
+      { "label": "Normal Skin", "height": "80%" },
+      { "label": "Sensitive Skin", "height": "60%" }
+    ]
+  },
+  {
+    "id": 8,
+    "brand": "Tatcha",
+    "name": "Clarifying Cleanse + Hydrate Duo",
+    "description": "The Tatcha Clarifying Cleanse + Hydrate Duo is a skincare set that includes a gentle cleanser and a hydrating moisturizer. The cleanser effectively removes impurities while the moisturizer provides deep hydration, leaving skin feeling soft and refreshed.",
+    "shortDescription": "A skincare set that includes a gentle cleanser and a hydrating moisturizer.",
+    "image": "/tatcha.avif",
+    "rating": 4.8,
+    "reviewCount": "150,234",
+    "harmfulIngredients": ["Fragrance", "Parabens"],
+    "potentialAllergens": 1,
+    "ingredients": "Water, Glycerin, Dimethicone, Isopropyl Palmitate, Aluminum Starch Octenylsuccinate, Cetyl Alcohol, Behenyl Alcohol, Phenoxyethanol, Triethanolamine, Carbomer",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "90%" },
+      { "label": "Combination Skin", "height": "60%" },
+      { "label": "Oily Skin", "height": "25%" },
+      { "label": "Normal Skin", "height": "85%" },
+      { "label": "Sensitive Skin", "height": "70%" }
+    ]
+  },
+  {
+    "id": 9,
+    "brand": "Fanty Beauty",
+    "name": "Butta Drop Whipped Oil Hydrating Body Cream",
+    "description": "Fanty Beauty Butta Drop Whipped Oil Hydrating Body Cream is a luxurious body cream that combines the richness of a butter with the lightness of an oil. This hydrating formula deeply nourishes and softens the skin, leaving it feeling silky smooth and radiant.",
+    "shortDescription": "A luxurious body cream that combines the richness of a butter with the lightness of an oil.",
+    "image": "/fenty.webp",
+    "rating": 4.9,
+    "reviewCount": "98,765",
+    "harmfulIngredients": ["Fragrance", "Parabens"],
+    "potentialAllergens": 1,
+    "ingredients": "Water, Glycerin, Dimethicone, Isopropyl Palmitate, Aluminum Starch Octenylsuccinate, Cetyl Alcohol, Behenyl Alcohol, Phenoxyethanol, Triethanolamine, Carbomer",
+    "bestFor": [
+      { "label": "Dry Skin", "height": "95%" },
+      { "label": "Combination Skin", "height": "70%" },
+      { "label": "Oily Skin", "height": "30%" },
+      { "label": "Normal Skin", "height": "90%" },
+      { "label": "Sensitive Skin", "height": "75%" }
+    ]
+  }
+]

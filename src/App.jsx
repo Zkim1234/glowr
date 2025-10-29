@@ -6,11 +6,17 @@ import ForYou from "./assets/components/ForYou";
 import HitIngredients from "./assets/components/HitIngredients";
 import PromoBoard from "./assets/components/PromoBoard";
 import Product from "./assets/pages/Product";
+import productsData from "../products.json";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
+  const [currentProductId, setCurrentProductId] = useState(1);
 
-  const navigateToProduct = () => {
+  // Sort products by ID to ensure correct ranking
+  const sortedProducts = [...productsData].sort((a, b) => a.id - b.id);
+
+  const navigateToProduct = (productId = 1) => {
+    setCurrentProductId(productId);
     setCurrentPage("product");
   };
 
@@ -19,7 +25,9 @@ function App() {
   };
 
   if (currentPage === "product") {
-    return <Product onBackToHome={navigateToHome} />;
+    return (
+      <Product onBackToHome={navigateToHome} productId={currentProductId} />
+    );
   }
 
   return (
@@ -34,130 +42,62 @@ function App() {
         <h3>TOP RANKED</h3>
         <div className="TopRankingList">
           <div className="Top1">
-            <TopRankedItem
-              ranking={1}
-              image={
-                <img src="/larocheposaycleanser.jpg" width="75" alt="Product" />
-              }
-              brand="La Roche-Posay"
-              product="Toleriane Hydrating Gentle Facial Cleanser"
-              rating={4.99}
-              onProductClick={navigateToProduct}
-            />
-            <TopRankedItem
-              ranking={2}
-              image={<img src="/loreal.jpg" width="75" alt="Product" />}
-              brand="L'Oréal Paris"
-              product="Revitalift Triple Power Moisturizer"
-              rating={4.98}
-              onProductClick={navigateToProduct}
-            />
-            <TopRankedItem
-              ranking={3}
-              image={<img src="/cerave.jpg" width="75" alt="Product" />}
-              brand="CeraVe"
-              product="Hydrating Facial Cleanser"
-              rating={4.96}
-              onProductClick={navigateToProduct}
-            />
+            {sortedProducts.slice(0, 3).map((product, index) => (
+              <TopRankedItem
+                key={product.id}
+                ranking={index + 1}
+                image={<img src={product.image} width="75" alt="Product" />}
+                brand={product.brand}
+                product={product.name}
+                rating={product.rating}
+                productId={product.id}
+                onProductClick={navigateToProduct}
+              />
+            ))}
           </div>
           <div className="Top4">
-            <TopRankedItem
-              ranking={4}
-              image={<img src="/neutrogena.jpg" width="75" alt="Product" />}
-              brand="Neutrogena"
-              product="Rapid Wrinkle Repair Retinol Cream"
-              rating={4.89}
-              onProductClick={navigateToProduct}
-            />
-            <TopRankedItem
-              ranking={5}
-              image={<img src="/eltamd.webp" width="75" alt="Product" />}
-              brand="EltaMD"
-              product="UV Lotion Broad-Spectrum SPF 30+"
-              rating={4.87}
-              onProductClick={navigateToProduct}
-            />
-            <TopRankedItem
-              ranking={6}
-              image={<img src="/aveeno.jpg" width="75" alt="Product" />}
-              brand="Aveeno"
-              product="Daily Moisturizing Face Lotion"
-              rating={4.79}
-              onProductClick={navigateToProduct}
-            />
+            {sortedProducts.slice(3, 6).map((product, index) => (
+              <TopRankedItem
+                key={product.id}
+                ranking={index + 4}
+                image={<img src={product.image} width="75" alt="Product" />}
+                brand={product.brand}
+                product={product.name}
+                rating={product.rating}
+                productId={product.id}
+                onProductClick={navigateToProduct}
+              />
+            ))}
           </div>
           <div className="Top4">
-            <TopRankedItem
-              ranking={7}
-              image={<img src="/caudalie.webp" width="75" alt="Product" />}
-              brand="Caudalie"
-              product="Vinoperfect Radiance Serum Vitamin C..."
-              rating={4.55}
-              onProductClick={navigateToProduct}
-            />
-            <TopRankedItem
-              ranking={8}
-              image={<img src="/tatcha.avif" width="75" alt="Product" />}
-              brand="Tatcha"
-              product="Clarifying Cleanse + Hydrate Duo"
-              rating={4.51}
-              onProductClick={navigateToProduct}
-            />
-            <TopRankedItem
-              ranking={9}
-              image={<img src="/fenty.webp" width="65" alt="Product" />}
-              brand="Fenty Beauty"
-              product="Butta Drop Refill Whipped Oil Body..."
-              rating={4.46}
-              onProductClick={navigateToProduct}
-            />
+            {sortedProducts.slice(6, 9).map((product, index) => (
+              <TopRankedItem
+                key={product.id}
+                ranking={index + 7}
+                image={<img src={product.image} width="75" alt="Product" />}
+                brand={product.brand}
+                product={product.name}
+                rating={product.rating}
+                productId={product.id}
+                onProductClick={navigateToProduct}
+              />
+            ))}
           </div>
         </div>
       </div>
       <div className="ForYouSection">
         <h3>For You</h3>
         <div className="ForYouList">
-          <ForYou
-            image={
-              <img
-                src="/larocheposaycleanser.jpg"
-                width="100"
-                alt="Example Image 1"
-              />
-            }
-            description="La Roche-Posay Revitalift Triple Power Moisturizer"
-            brand="La Roche-Posay"
-            onProductClick={navigateToProduct}
-          />
-          <ForYou
-            image={<img src="/loreal.jpg" width="100" alt="Example Image 1" />}
-            description="L'Oréal Paris Revitalift Triple Power Moisturizer"
-            brand="L'Oréal Paris"
-            onProductClick={navigateToProduct}
-          />
-          <ForYou
-            image={<img src="/cerave.jpg" width="100" alt="Example Image 1" />}
-            description="CeraVe Hydrating Facial Cleanser"
-            brand="CeraVe"
-            onProductClick={navigateToProduct}
-          />
-          <ForYou
-            image={
-              <img src="/neutrogena.jpg" width="100" alt="Example Image 1" />
-            }
-            description="Neutrogena Rapid Wrinkle Repair Retinol Cream"
-            brand="Neutrogena"
-            onProductClick={navigateToProduct}
-          />
-          <ForYou
-            image={
-              <img src="/caudalie.webp" width="100" alt="Example Image 1" />
-            }
-            description="Caudalie Vinoperfect Radiance Serum Vitamin C.."
-            brand="Caudalie"
-            onProductClick={navigateToProduct}
-          />
+          {sortedProducts.slice(0, 5).map((product) => (
+            <ForYou
+              key={product.id}
+              image={<img src={product.image} width="100" alt={product.name} />}
+              description={product.name}
+              brand={product.brand}
+              productId={product.id}
+              onProductClick={navigateToProduct}
+            />
+          ))}
         </div>
       </div>
       <div className="HitIngredientsSection">
