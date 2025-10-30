@@ -1,7 +1,8 @@
 import { useRef, cloneElement } from "react";
 import styles from "./dialog.module.css";
 
-function Modal({ btnLabel, children, trigger }) {
+// childProps: optional object of props to inject into the child component
+function Modal({ btnLabel, children, trigger, childProps = {} }) {
   const modalRef = useRef();
 
   function openModal() {
@@ -20,7 +21,7 @@ function Modal({ btnLabel, children, trigger }) {
         <button onClick={openModal}>{btnLabel}</button>
       )}
       <dialog ref={modalRef} className={styles.modal}>
-        {cloneElement(children, { onClose: closeModal })}
+        {cloneElement(children, { onClose: closeModal, ...childProps })}
       </dialog>
     </>
   );

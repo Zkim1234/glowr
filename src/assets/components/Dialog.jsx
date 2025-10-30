@@ -1,10 +1,29 @@
+import React from "react";
 import styles from "./dialog.module.css";
 
-function skinToggle(e) {
-  e.currentTarget.classList.toggle(styles.skinToggle);
-}
+function Dialog({ onClose, onSubmit }) {
+  const [name, setName] = React.useState("");
+  const [title, setTitle] = React.useState("");
+  const [skinType, setSkinType] = React.useState("");
+  const [rating, setRating] = React.useState(5);
+  const [reviewText, setReviewText] = React.useState("");
 
-function Dialog({ onClose }) {
+  function handlePost() {
+    const newReview = {
+      name: name.trim() || "Anonymous",
+      date: "Just now",
+      rating: rating,
+      skinType: skinType || "Not specified",
+      title: title.trim(),
+      text: reviewText.trim(),
+    };
+
+    if (typeof onSubmit === "function") {
+      onSubmit(newReview);
+    }
+    if (typeof onClose === "function") onClose();
+  }
+
   return (
     <div className={styles.reviewContainer}>
       <button className={styles.closeBtn} onClick={onClose}>
@@ -22,7 +41,7 @@ function Dialog({ onClose }) {
           />
         </div>
 
-        <div className={styles.productInfo}>
+          <div className={styles.productInfo}>
           <h2 className={styles.productTitle}>
             Toleriane Hydrating<br></br> Gentle Facial Cleanser
           </h2>
@@ -39,11 +58,15 @@ function Dialog({ onClose }) {
           <div className={styles.ratingSection}>
             <h3 className={styles.titles}>Rate this product</h3>
             <div className={styles.stars}>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
+              {[1, 2, 3, 4, 5].map((s) => (
+                <span
+                  key={s}
+                  onClick={() => setRating(s)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {s <= rating ? "★" : "☆"}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -51,24 +74,52 @@ function Dialog({ onClose }) {
 
       <div className={styles.formSection}>
         <div className={styles.titleSection}>
+          <h3 className={styles.titles}>Your name</h3>
+          <input
+            className={styles.titleInput}
+            type="text"
+            placeholder="Name (optional)"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.titleSection}>
           <h3 className={styles.titles}>Make a title</h3>
           <input
             className={styles.titleInput}
             type="text"
             placeholder="Title..."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
 
         <div className={styles.skinTypeSection}>
           <h3 className={styles.titles}>What kind of skin type do you have?</h3>
           <div className={styles.skinTypeButtons}>
-            <button className={styles.skinTypeBtn} onClick={skinToggle}>
+            <button
+              className={`${styles.skinTypeBtn} ${
+                skinType === "Oily" ? styles.skinToggle : ""
+              }`}
+              onClick={() => setSkinType("Oily")}
+            >
               Oily
             </button>
-            <button className={styles.skinTypeBtn} onClick={skinToggle}>
+            <button
+              className={`${styles.skinTypeBtn} ${
+                skinType === "Combination" ? styles.skinToggle : ""
+              }`}
+              onClick={() => setSkinType("Combination")}
+            >
               Combination
             </button>
-            <button className={styles.skinTypeBtn} onClick={skinToggle}>
+            <button
+              className={`${styles.skinTypeBtn} ${
+                skinType === "Dry" ? styles.skinToggle : ""
+              }`}
+              onClick={() => setSkinType("Dry")}
+            >
               Dry
             </button>
           </div>
@@ -86,14 +137,12 @@ function Dialog({ onClose }) {
           <textarea
             className={styles.reviewInput}
             placeholder="Add a review..."
+            value={reviewText}
+            onChange={(e) => setReviewText(e.target.value)}
           ></textarea>
         </div>
 
-        <button
-          type="submit"
-          className={styles.postReviewBtn}
-          onClick={onClose}
-        >
+        <button type="button" className={styles.postReviewBtn} onClick={handlePost}>
           Post Review
         </button>
       </div>

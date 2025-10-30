@@ -14,6 +14,47 @@ function Product({ onBackToHome }) {
 
   const [showFullDescription, setShowFullDescription] = React.useState(false);
 
+  // reviews state (start with existing sample reviews)
+  const [reviews, setReviews] = React.useState([
+    {
+      name: "Anonymous",
+      date: "5 days ago",
+      rating: 5,
+      skinType: "Oily, Sensitive",
+      text: "nice",
+    },
+    {
+      name: "Anonymous",
+      date: "5 days ago",
+      rating: 5,
+      skinType: "Oily, Sensitive",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+    },
+    {
+      name: "Anonymous",
+      date: "5 days ago",
+      rating: 5,
+      skinType: "Oily, Sensitive",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+    },
+    {
+      name: "Anonymous",
+      date: "5 days ago",
+      rating: 5,
+      skinType: "Oily, Sensitive",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
+    },
+  ]);
+
+  function addReview(review) {
+    // add a simple timestamp if not provided
+    const withDate = { ...review, date: review.date || new Date().toLocaleString() };
+    setReviews((r) => [withDate, ...r]);
+  }
+
   // Shortened description (always show short by default, toggle for full)
   const shortDescription =
     "Toleriane Hydrating Gentle Cleanser is a daily face wash for normal to dry, sensitive skin. Formulated with La Roche-Posay prebiotic thermal spring water, niacinamide, and ceramide-3...";
@@ -98,73 +139,22 @@ function Product({ onBackToHome }) {
       <div className="reviews-section">
         <div className="review-header">
           <h2 className="mobile-subheading bold desktop-title">Reviews</h2>
-          <Modal
-            trigger={<button className="review-button">Write a Review</button>}
-          >
+          <Modal trigger={<button className="review-button">Write a Review</button>} childProps={{ onSubmit: addReview }}>
             <Dialog />
           </Modal>
         </div>
         <div className="all-reviews">
-          <div className="review">
-            <div className="review-rating">
-              <p className="mobile-subheading desktop-h3">Anonymous</p>
-              <span className="mobile-small desktop-small">5 days ago</span>
+          {reviews.map((rv, i) => (
+            <div className="review" key={i}>
+              <div className="review-rating">
+                <p className="mobile-subheading desktop-h3">{rv.name}</p>
+                <span className="mobile-small desktop-small">{rv.date}</span>
+              </div>
+              <span>{'★'.repeat(rv.rating) + '☆'.repeat(5 - rv.rating)}</span>
+              <p className="bold mobile-regular desktop-regular">Skin Type: {rv.skinType}</p>
+              <p className="mobile-regular desktop-regular">{rv.text}</p>
             </div>
-            <span>⭐⭐⭐⭐⭐</span>
-            <p className="bold mobile-regular desktop-regular">
-              Skin Type: Oily, Sensitive
-            </p>
-            <p className="mobile-regular desktop-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-            </p>
-          </div>
-          <div className="review">
-            <div className="review-rating">
-              <p className="mobile-subheading desktop-h3">Anonymous</p>
-              <span className="mobile-small desktop-small">5 days ago</span>
-            </div>
-            <span>⭐⭐⭐⭐⭐</span>
-            <p className="bold mobile-regular desktop-regular">
-              Skin Type: Oily, Sensitive
-            </p>
-            <p className="mobile-regular desktop-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-            </p>
-          </div>
-          <div className="review">
-            <div className="review-rating">
-              <p className="mobile-subheading desktop-h3">Anonymous</p>
-              <span className="mobile-small desktop-small">5 days ago</span>
-            </div>
-            <span>⭐⭐⭐⭐⭐</span>
-            <p className="bold mobile-regular desktop-regular">
-              Skin Type: Oily, Sensitive
-            </p>
-            <p className="mobile-regular desktop-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-            </p>
-          </div>
-          <div className="review">
-            <div className="review-rating">
-              <p className="mobile-subheading desktop-h3">Anonymous</p>
-              <span className="mobile-small desktop-small">5 days ago</span>
-            </div>
-            <span>⭐⭐⭐⭐⭐</span>
-            <p className="bold mobile-regular desktop-regular">
-              Skin Type: Oily, Sensitive
-            </p>
-            <p className="mobile-regular desktop-regular">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco{" "}
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>
