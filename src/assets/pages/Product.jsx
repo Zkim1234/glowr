@@ -8,6 +8,21 @@ function Product({ onBackToHome, productId = 1 }) {
   const [showFullDescription, setShowFullDescription] = React.useState(false);
   const [product, setProduct] = React.useState(null);
 
+  const [reviews, setReviews] = React.useState([]);
+
+  // initialize reviews when product loads (fallback to a couple sample reviews)
+  React.useEffect(() => {
+    if (!product) return;
+    if (product.reviews && Array.isArray(product.reviews)) {
+      setReviews(product.reviews);
+    }
+  }, [product]);
+
+  function addReview(newReview) {
+    const withId = { ...newReview, id: Date.now() };
+    setReviews((prev) => [withId, ...prev]);
+  }
+
   // Load product data based on productId
   React.useEffect(() => {
     const foundProduct = productsData.find((p) => p.id === productId);
@@ -106,19 +121,28 @@ function Product({ onBackToHome, productId = 1 }) {
           </Modal>
         </div>
         <div className="all-reviews">
-          {reviews.map((rv, i) => (
-            <div className="review" key={i}>
-              <div className="review-rating">
-                <p className="mobile-subheading desktop-h3">{rv.name}</p>
-                <span className="mobile-small desktop-small">{rv.date}</span>
+          {reviews.length === 0 ? (
+            <p className="mobile-regular desktop-regular">No reviews yet.</p>
+          ) : (
+            reviews.map((r) => (
+              <div className="review" key={r.id}>
+                <div className="review-rating">
+                  <p className="mobile-subheading desktop-h3">{r.name}</p>
+                  <span className="mobile-small desktop-small">{r.date}</span>
+                </div>
+                <span>{"★".repeat(r.rating) + "☆".repeat(5 - r.rating)}</span>
+                {r.title ? (
+                  <p className="bold mobile-regular desktop-regular">
+                    {r.title}
+                  </p>
+                ) : null}
+                <p className="bold mobile-regular desktop-regular">
+                  Skin Type: {r.skinType}
+                </p>
+                <p className="mobile-regular desktop-regular">{r.text}</p>
               </div>
-              <span>{"★".repeat(rv.rating) + "☆".repeat(5 - rv.rating)}</span>
-              <p className="bold mobile-regular desktop-regular">
-                Skin Type: {rv.skinType}
-              </p>
-              <p className="mobile-regular desktop-regular">{rv.text}</p>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
     </div>

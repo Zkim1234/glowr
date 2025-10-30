@@ -41,7 +41,7 @@ function Dialog({ onClose, onSubmit }) {
           />
         </div>
 
-          <div className={styles.productInfo}>
+        <div className={styles.productInfo}>
           <h2 className={styles.productTitle}>
             Toleriane Hydrating<br></br> Gentle Facial Cleanser
           </h2>
@@ -142,7 +142,11 @@ function Dialog({ onClose, onSubmit }) {
           ></textarea>
         </div>
 
-        <button type="button" className={styles.postReviewBtn} onClick={handlePost}>
+        <button
+          type="button"
+          className={styles.postReviewBtn}
+          onClick={handlePost}
+        >
           Post Review
         </button>
       </div>

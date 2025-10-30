@@ -9,8 +9,22 @@ import Product from "./assets/pages/Product";
 import productsData from "../products.json";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
-  const [currentProductId, setCurrentProductId] = useState(1);
+  const [currentPage, setCurrentPage] = useState(() => {
+    try {
+      return localStorage.getItem("glowr.currentPage") || "home";
+    } catch (e) {
+      return "home";
+    }
+  });
+
+  const [currentProductId, setCurrentProductId] = useState(() => {
+    try {
+      const v = localStorage.getItem("glowr.currentProductId");
+      return v ? Number(v) : 1;
+    } catch (e) {
+      return 1;
+    }
+  });
 
   // Sort products by ID to ensure correct ranking
   const sortedProducts = [...productsData].sort((a, b) => a.id - b.id);
@@ -18,10 +32,21 @@ function App() {
   const navigateToProduct = (productId = 1) => {
     setCurrentProductId(productId);
     setCurrentPage("product");
+    try {
+      localStorage.setItem("glowr.currentProductId", String(productId));
+      localStorage.setItem("glowr.currentPage", "product");
+    } catch (e) {
+      /* ignore localStorage errors */
+    }
   };
 
   const navigateToHome = () => {
     setCurrentPage("home");
+    try {
+      localStorage.setItem("glowr.currentPage", "home");
+    } catch (e) {
+      /* ignore localStorage errors */
+    }
   };
 
   if (currentPage === "product") {
