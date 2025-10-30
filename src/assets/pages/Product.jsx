@@ -2,87 +2,44 @@ import "./product.css";
 import Modal from "../components/Modal";
 import Dialog from "../components/Dialog";
 import React from "react";
+import productsData from "../../../products.json";
 
-function Product({ onBackToHome }) {
-  const bestForBars = [
-    { label: "Dry Skin", height: "90%" },
-    { label: "Combination Skin", height: "50%" },
-    { label: "Oily Skin", height: "20%" },
-    { label: "Normal Skin", height: "80%" },
-    { label: "Sensitive Skin", height: "80%" },
-  ];
-
+function Product({ onBackToHome, productId = 1 }) {
   const [showFullDescription, setShowFullDescription] = React.useState(false);
+  const [product, setProduct] = React.useState(null);
 
-  // reviews state (start with existing sample reviews)
-  const [reviews, setReviews] = React.useState([
-    {
-      name: "Anonymous",
-      date: "5 days ago",
-      rating: 5,
-      skinType: "Oily, Sensitive",
-      text: "nice",
-    },
-    {
-      name: "Anonymous",
-      date: "5 days ago",
-      rating: 5,
-      skinType: "Oily, Sensitive",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-    },
-    {
-      name: "Anonymous",
-      date: "5 days ago",
-      rating: 5,
-      skinType: "Oily, Sensitive",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-    },
-    {
-      name: "Anonymous",
-      date: "5 days ago",
-      rating: 5,
-      skinType: "Oily, Sensitive",
-      text:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco",
-    },
-  ]);
+  // Load product data based on productId
+  React.useEffect(() => {
+    const foundProduct = productsData.find((p) => p.id === productId);
+    setProduct(foundProduct || productsData[0]); // fallback to first product if not found
+  }, [productId]);
 
-  function addReview(review) {
-    // add a simple timestamp if not provided
-    const withDate = { ...review, date: review.date || new Date().toLocaleString() };
-    setReviews((r) => [withDate, ...r]);
+  // Scroll to top when component mounts
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  if (!product) {
+    return <div>Loading...</div>;
   }
-
-  // Shortened description (always show short by default, toggle for full)
-  const shortDescription =
-    "Toleriane Hydrating Gentle Cleanser is a daily face wash for normal to dry, sensitive skin. Formulated with La Roche-Posay prebiotic thermal spring water, niacinamide, and ceramide-3...";
-
-  const fullDescription =
-    "Toleriane Hydrating Gentle Cleanser is a daily face wash for normal to dry, sensitive skin. Formulated with La Roche-Posay prebiotic thermal spring water, niacinamide, and ceramide-3, this face wash gently cleanses skin of dirt, makeup, and impurities while maintaining skin's natural moisture barrier and pH.";
 
   return (
     <div className="product-container">
       <button className="back-btn" onClick={onBackToHome}>
         ×
       </button>
-      <img
-        className="product-img"
-        src="https://i5.walmartimages.com/asr/df0c9808-7b30-4a5c-adf8-a1868304756f.48fb5e187bf4b965a69465d8520f88fe.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
-        alt="Product"
-      />
+      <img className="product-img" src={product.image} alt={product.name} />
       <div className="product-details">
         <div>
           {/* product title and description */}
           <p className="mobile-subheading brand-name desktop-h1">
-            La Roche-Posay
+            {product.brand}
           </p>
-          <h1 className="mobile-title desktop-title">
-            Toleriane Hydrating Gentle Facial Cleanser
-          </h1>
+          <h1 className="mobile-title desktop-title">{product.name}</h1>
           <p className="mobile-regular desktop-regular">
-            {showFullDescription ? fullDescription : shortDescription}
+            {showFullDescription
+              ? product.description
+              : product.shortDescription}
             <button
               className="details-button"
               style={{ marginLeft: 8 }}
@@ -94,10 +51,10 @@ function Product({ onBackToHome }) {
         </div>
         <div className="rating">
           {/* overall rating */}
-          <span className="rating-avg desktop-title">4.5</span>
+          <span className="rating-avg desktop-title">{product.rating}</span>
           <span>⭐⭐⭐⭐⭐</span>
           <span className="mobile-small desktop-regular">
-            560,385 reviews...
+            {product.reviewCount} reviews...
           </span>
         </div>
         <div className="ingredients">
@@ -105,15 +62,21 @@ function Product({ onBackToHome }) {
           <div className="ingredients-info">
             <div className="ingredients-detected">
               <p>Harmful Ingredients</p>
-              <p className="bold align-right"> 3 detected</p>
+              <p className="bold align-right">
+                {" "}
+                {product.harmfulIngredients.length} detected
+              </p>
               <p>Potential Skin Allergens Ingredients</p>
-              <p className="bold align-right"> 0 detected</p>
+              <p className="bold align-right">
+                {" "}
+                {product.potentialAllergens} detected
+              </p>
             </div>
             <div>
               {/* best for graph */}
               <h3 className="mobile-subheading bold desktop-h2">Best for</h3>
               <div className="best-for-graph">
-                {bestForBars.map((bar) => (
+                {product.bestFor.map((bar) => (
                   <div key={bar.label} className="bar-container">
                     <div
                       className="best-for-bar"
@@ -127,11 +90,7 @@ function Product({ onBackToHome }) {
               </div>
             </div>
           </div>
-          <p className="desktop-bigger-regular">
-            Aqua / Water / Eau (La Roche-Posay Prebiotic Thermal Water),
-            Glycerin, Pentaerythrityl Tetraethylhexanoate, Propylene Glycol,
-            Ammonium Polyacryloyldimethyl Taurate, Polysorbate 60, Ceramide Np{" "}
-          </p>
+          <p className="desktop-bigger-regular">{product.ingredients}</p>
         </div>
       </div>
 
@@ -139,7 +98,10 @@ function Product({ onBackToHome }) {
       <div className="reviews-section">
         <div className="review-header">
           <h2 className="mobile-subheading bold desktop-title">Reviews</h2>
-          <Modal trigger={<button className="review-button">Write a Review</button>} childProps={{ onSubmit: addReview }}>
+          <Modal
+            trigger={<button className="review-button">Write a Review</button>}
+            childProps={{ onSubmit: addReview }}
+          >
             <Dialog />
           </Modal>
         </div>
@@ -150,8 +112,10 @@ function Product({ onBackToHome }) {
                 <p className="mobile-subheading desktop-h3">{rv.name}</p>
                 <span className="mobile-small desktop-small">{rv.date}</span>
               </div>
-              <span>{'★'.repeat(rv.rating) + '☆'.repeat(5 - rv.rating)}</span>
-              <p className="bold mobile-regular desktop-regular">Skin Type: {rv.skinType}</p>
+              <span>{"★".repeat(rv.rating) + "☆".repeat(5 - rv.rating)}</span>
+              <p className="bold mobile-regular desktop-regular">
+                Skin Type: {rv.skinType}
+              </p>
               <p className="mobile-regular desktop-regular">{rv.text}</p>
             </div>
           ))}

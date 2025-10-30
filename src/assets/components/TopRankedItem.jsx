@@ -6,15 +6,13 @@ function TopRankedItem({
   brand,
   product,
   rating,
+  productId,
   onProductClick,
 }) {
-  const isLaRochePosay = brand === "La Roche-Posay";
-
   const handleClick = () => {
-    if (isLaRochePosay && onProductClick) {
-      onProductClick();
+    if (onProductClick && productId) {
+      onProductClick(productId);
     }
-    // All items are clickable, but only La Roche-Posay navigates
   };
 
   return (

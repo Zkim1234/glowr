@@ -1,13 +1,10 @@
 import "./HomeComponents.css";
 
-function ForYou({ image, description, brand, onProductClick }) {
-  const isLaRochePosay = brand === "La Roche-Posay";
-
+function ForYou({ image, description, brand, productId, onProductClick }) {
   const handleClick = () => {
-    if (isLaRochePosay && onProductClick) {
-      onProductClick();
+    if (onProductClick && productId) {
+      onProductClick(productId);
     }
-    // All items are clickable, but only La Roche-Posay navigates
   };
 
   return (
