@@ -204,13 +204,6 @@ p {
 }
 /*------ mobile size adjustments ------*/
 
-.reviews-section {
-  margin-top: 2em;
-  width: 100%;
-  p {
-    margin: 0.5em 0;
-  }
-}
 .review-header {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -228,6 +221,7 @@ p {
     color: var(--gray);
   }
 }
+
 .review-button {
   width: 150px;
   height: 40px;

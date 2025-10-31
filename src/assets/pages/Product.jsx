@@ -130,7 +130,22 @@ function Product({ onBackToHome, productId = 1 }) {
                   <p className="mobile-subheading desktop-h3">{r.name}</p>
                   <span className="mobile-small desktop-small">{r.date}</span>
                 </div>
-                <span>{"★".repeat(r.rating) + "☆".repeat(5 - r.rating)}</span>
+                <span className="review-stars">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <img
+                      key={i}
+                      src={
+                        i < r.rating ? "/starFilled.svg" : "/starUnfilled.svg"
+                      }
+                      alt={
+                        i < r.rating
+                          ? `filled star ${i + 1}`
+                          : `empty star ${i + 1}`
+                      }
+                      style={{ width: 18, height: 18, marginRight: 6 }}
+                    />
+                  ))}
+                </span>
                 {r.title ? (
                   <p className="bold mobile-regular desktop-regular">
                     {r.title}

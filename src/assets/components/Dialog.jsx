@@ -5,18 +5,38 @@ function Dialog({ onClose, onSubmit }) {
   const [name, setName] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [skinType, setSkinType] = React.useState("");
-  const [rating, setRating] = React.useState(5);
+  const [rating, setRating] = React.useState();
   const [reviewText, setReviewText] = React.useState("");
+  const titleRef = React.useRef(null);
+  const reviewRef = React.useRef(null);
+  const [errors, setErrors] = React.useState({ title: "", review: "" });
 
   function handlePost() {
+    // validate required fields
+    const titleVal = title.trim();
+    const reviewVal = reviewText.trim();
+    if (!titleVal) {
+      setErrors({ title: "Title is required", review: "" });
+      titleRef.current?.focus();
+      return;
+    }
+    if (!reviewVal) {
+      setErrors({ title: "", review: "Review is required" });
+      reviewRef.current?.focus();
+      return;
+    }
+
     const newReview = {
       name: name.trim() || "Anonymous",
       date: "Just now",
       rating: rating,
       skinType: skinType || "Not specified",
-      title: title.trim(),
-      text: reviewText.trim(),
+      title: titleVal,
+      text: reviewVal,
     };
+
+    // clear errors
+    setErrors({ title: "", review: "" });
 
     if (typeof onSubmit === "function") {
       onSubmit(newReview);
@@ -56,16 +76,23 @@ function Dialog({ onClose, onSubmit }) {
           </p>
 
           <div className={styles.ratingSection}>
-            <h3 className={styles.titles}>Rate this product</h3>
+            <h3 className={styles.titlesStar}>Rate This Product</h3>
             <div className={styles.stars}>
               {[1, 2, 3, 4, 5].map((s) => (
-                <span
+                <img
                   key={s}
+                  src={s <= rating ? "/starFilled.svg" : "/starUnfilled.svg"}
+                  alt={s <= rating ? `filled star ${s}` : `empty star ${s}`}
                   onClick={() => setRating(s)}
-                  style={{ cursor: "pointer" }}
-                >
-                  {s <= rating ? "★" : "☆"}
-                </span>
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      setRating(s);
+                      e.preventDefault();
+                    }
+                  }}
+                  tabIndex={0}
+                  style={{ cursor: "pointer", width: 25, height: 24 }}
+                />
               ))}
             </div>
           </div>
@@ -91,8 +118,18 @@ function Dialog({ onClose, onSubmit }) {
             type="text"
             placeholder="Title..."
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => {
+              setTitle(e.target.value);
+              if (errors.title) setErrors((p) => ({ ...p, title: "" }));
+            }}
+            ref={titleRef}
+            required
           />
+          {errors.title ? (
+            <div style={{ color: "#c0392b", fontSize: 13, marginTop: 6 }}>
+              {errors.title}
+            </div>
+          ) : null}
         </div>
 
         <div className={styles.skinTypeSection}>
@@ -138,8 +175,18 @@ function Dialog({ onClose, onSubmit }) {
             className={styles.reviewInput}
             placeholder="Add a review..."
             value={reviewText}
-            onChange={(e) => setReviewText(e.target.value)}
+            onChange={(e) => {
+              setReviewText(e.target.value);
+              if (errors.review) setErrors((p) => ({ ...p, review: "" }));
+            }}
+            ref={reviewRef}
+            required
           ></textarea>
+          {errors.review ? (
+            <div style={{ color: "#c0392b", fontSize: 13, marginTop: 6 }}>
+              {errors.review}
+            </div>
+          ) : null}
         </div>
 
         <button
