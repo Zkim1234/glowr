@@ -1,29 +1,43 @@
-import { useRef, cloneElement, useState } from "react";
+import { useRef, cloneElement, useState, useEffect } from "react";
 import styles from "./dialog.module.css";
 
 // childProps: optional object of props to inject into the child component
-function Modal({ btnLabel, children, trigger, childProps = {} }) {
+function Modal({
+  btnLabel,
+  children,
+  trigger,
+  childProps = {},
+  open,
+  onClose,
+}) {
   const modalRef = useRef();
   const [openKey, setOpenKey] = useState(0);
 
   function openModal() {
-    // bump key so cloned child is remounted (clears its internal state)
     setOpenKey((k) => k + 1);
-    // show dialog after React has a chance to remount the child
     Promise.resolve().then(() => modalRef.current.showModal());
   }
 
   function closeModal() {
-    modalRef.current.close();
+    if (modalRef.current && typeof modalRef.current.close === "function") {
+      modalRef.current.close();
+    }
+    if (typeof onClose === "function") onClose();
   }
+
+  // support controlled open prop (useful for edit flow)
+  useEffect(() => {
+    if (open) openModal();
+    else if (modalRef.current && modalRef.current.open) closeModal();
+  }, [open]);
 
   return (
     <>
       {trigger ? (
         cloneElement(trigger, { onClick: openModal })
-      ) : (
+      ) : btnLabel ? (
         <button onClick={openModal}>{btnLabel}</button>
-      )}
+      ) : null}
       <dialog ref={modalRef} className={styles.modal}>
         {cloneElement(children, {
           key: openKey,

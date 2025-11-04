@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./dialog.module.css";
 
-function Dialog({ onClose, onSubmit }) {
-  const [name, setName] = React.useState("");
-  const [title, setTitle] = React.useState("");
-  const [skinType, setSkinType] = React.useState("");
-  const [rating, setRating] = React.useState();
-  const [reviewText, setReviewText] = React.useState("");
+function Dialog({ onClose, onSubmit, initialReview }) {
+  const [name, setName] = React.useState(initialReview?.name || "");
+  const [title, setTitle] = React.useState(initialReview?.title || "");
+  const [skinType, setSkinType] = React.useState(initialReview?.skinType || "");
+  const [rating, setRating] = React.useState(initialReview?.rating ?? 0);
+  const [reviewText, setReviewText] = React.useState(initialReview?.text || "");
   const titleRef = React.useRef(null);
   const reviewRef = React.useRef(null);
   const [errors, setErrors] = React.useState({ title: "", review: "" });
@@ -27,9 +27,10 @@ function Dialog({ onClose, onSubmit }) {
     }
 
     const newReview = {
+      ...(initialReview && initialReview.id ? { id: initialReview.id } : {}),
       name: name.trim() || "Anonymous",
       date: "Just now",
-      rating: rating,
+      rating: rating || 0,
       skinType: skinType || "Not specified",
       title: titleVal,
       text: reviewVal,
@@ -43,6 +44,15 @@ function Dialog({ onClose, onSubmit }) {
     }
     if (typeof onClose === "function") onClose();
   }
+
+  // keep local state in sync when editing a different review
+  React.useEffect(() => {
+    setName(initialReview?.name || "");
+    setTitle(initialReview?.title || "");
+    setSkinType(initialReview?.skinType || "");
+    setRating(initialReview?.rating ?? 0);
+    setReviewText(initialReview?.text || "");
+  }, [initialReview]);
 
   return (
     <div className={styles.reviewContainer}>

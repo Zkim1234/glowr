@@ -9,6 +9,9 @@ function Product({ onBackToHome, productId = 1 }) {
   const [product, setProduct] = React.useState(null);
 
   const [reviews, setReviews] = React.useState([]);
+  const [editingReview, setEditingReview] = React.useState(null);
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [openMenuId, setOpenMenuId] = React.useState(null);
 
   // initialize reviews when product loads (fallback to a couple sample reviews)
   React.useEffect(() => {
@@ -21,6 +24,26 @@ function Product({ onBackToHome, productId = 1 }) {
   function addReview(newReview) {
     const withId = { ...newReview, id: Date.now() };
     setReviews((prev) => [withId, ...prev]);
+  }
+
+  function updateReview(updated) {
+    setReviews((prev) =>
+      prev.map((r) => (r.id === updated.id ? { ...r, ...updated } : r))
+    );
+  }
+
+  function deleteReview(id) {
+    setReviews((prev) => prev.filter((r) => r.id !== id));
+  }
+
+  function handleSubmit(review) {
+    if (review.id) {
+      updateReview(review);
+    } else {
+      addReview(review);
+    }
+    setModalOpen(false);
+    setEditingReview(null);
   }
 
   // Load product data based on productId
@@ -113,9 +136,25 @@ function Product({ onBackToHome, productId = 1 }) {
       <div className="reviews-section">
         <div className="review-header">
           <h2 className="mobile-subheading bold desktop-title">Reviews</h2>
+          <button
+            className="review-button"
+            onClick={() => {
+              setEditingReview(null);
+              setModalOpen(true);
+            }}
+          >
+            Write a Review
+          </button>
           <Modal
-            trigger={<button className="review-button">Write a Review</button>}
-            childProps={{ onSubmit: addReview }}
+            open={modalOpen}
+            onClose={() => {
+              setModalOpen(false);
+              setEditingReview(null);
+            }}
+            childProps={{
+              onSubmit: handleSubmit,
+              initialReview: editingReview,
+            }}
           >
             <Dialog />
           </Modal>
@@ -125,7 +164,11 @@ function Product({ onBackToHome, productId = 1 }) {
             <p className="mobile-regular desktop-regular">No reviews yet.</p>
           ) : (
             reviews.map((r) => (
-              <div className="review" key={r.id}>
+              <div
+                className="review"
+                key={r.id}
+                onClick={() => setOpenMenuId(null)}
+              >
                 <div className="review-rating">
                   <p className="mobile-subheading desktop-h3">{r.name}</p>
                   <span className="mobile-small desktop-small">{r.date}</span>
@@ -155,6 +198,65 @@ function Product({ onBackToHome, productId = 1 }) {
                   Skin Type: {r.skinType}
                 </p>
                 <p className="mobile-regular desktop-regular">{r.text}</p>
+
+                <div className="review-actions" style={{ marginTop: 8 }}>
+                  <div
+                    className="review-menu-wrap"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      className="menu-btn"
+                      aria-haspopup="true"
+                      aria-expanded={openMenuId === r.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setOpenMenuId((prev) => (prev === r.id ? null : r.id));
+                      }}
+                    >
+                      ⋯
+                    </button>
+
+                    <div
+                      className={
+                        "review-menu" + (openMenuId === r.id ? " show" : "")
+                      }
+                      role="menu"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <button
+                        role="menuitem"
+                        className="details-button"
+                        onClick={() => {
+                          setEditingReview(r);
+                          setModalOpen(true);
+                          setOpenMenuId(null);
+                        }}
+                      >
+                        <span style={{ marginRight: 8 }}>✎</span>
+                        Edit Review
+                      </button>
+                      <div
+                        style={{
+                          height: 1,
+                          background: "#eee",
+                          margin: "6px 0",
+                        }}
+                      />
+                      <button
+                        role="menuitem"
+                        className="details-button"
+                        style={{ color: "#c0392b" }}
+                        onClick={() => {
+                          deleteReview(r.id);
+                          setOpenMenuId(null);
+                        }}
+                      >
+                        <span style={{ marginRight: 8 }}>🗑️</span>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))
           )}
