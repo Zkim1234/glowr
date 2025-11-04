@@ -154,6 +154,7 @@ function Product({ onBackToHome, productId = 1 }) {
             childProps={{
               onSubmit: handleSubmit,
               initialReview: editingReview,
+              product: product,
             }}
           >
             <Dialog />
@@ -177,6 +178,7 @@ function Product({ onBackToHome, productId = 1 }) {
                   {Array.from({ length: 5 }).map((_, i) => (
                     <img
                       key={i}
+                      className="star"
                       src={
                         i < r.rating ? "/starFilled.svg" : "/starUnfilled.svg"
                       }
@@ -185,7 +187,6 @@ function Product({ onBackToHome, productId = 1 }) {
                           ? `filled star ${i + 1}`
                           : `empty star ${i + 1}`
                       }
-                      style={{ width: 18, height: 18, marginRight: 6 }}
                     />
                   ))}
                 </span>
@@ -225,34 +226,31 @@ function Product({ onBackToHome, productId = 1 }) {
                     >
                       <button
                         role="menuitem"
-                        className="details-button"
+                        className="menu-edit"
                         onClick={() => {
                           setEditingReview(r);
                           setModalOpen(true);
                           setOpenMenuId(null);
                         }}
                       >
-                        <span style={{ marginRight: 8 }}>✎</span>
-                        Edit Review
+                        <span>Edit Review</span>
+                        <span className="menu-icon">
+                          <img src="/edit.svg" alt="edit icon" />
+                        </span>
                       </button>
-                      <div
-                        style={{
-                          height: 1,
-                          background: "#eee",
-                          margin: "6px 0",
-                        }}
-                      />
+                      <div className="menu-divider" />
                       <button
                         role="menuitem"
-                        className="details-button"
-                        style={{ color: "#c0392b" }}
+                        className="menu-delete"
                         onClick={() => {
                           deleteReview(r.id);
                           setOpenMenuId(null);
                         }}
                       >
-                        <span style={{ marginRight: 8 }}>🗑️</span>
-                        Delete
+                        <span>Delete</span>
+                        <span className="menu-icon">
+                          <img src="/delete.svg" alt="delete icon" />
+                        </span>
                       </button>
                     </div>
                   </div>

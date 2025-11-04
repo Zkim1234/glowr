@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./dialog.module.css";
 
-function Dialog({ onClose, onSubmit, initialReview }) {
+function Dialog({ onClose, onSubmit, initialReview, product }) {
   const [name, setName] = React.useState(initialReview?.name || "");
   const [title, setTitle] = React.useState(initialReview?.title || "");
   const [skinType, setSkinType] = React.useState(initialReview?.skinType || "");
@@ -65,24 +65,22 @@ function Dialog({ onClose, onSubmit, initialReview }) {
 
       <div className={styles.productSection}>
         <div className={styles.productImage}>
-          <img
-            src="https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-laroche-posay-master-catalog/default/dw8b2f3571/product/March%202023%20packshot%20updates/Toleriane_HydratingGentleCleanser_400ml-Pump.jpg?sw=698&sh=698&sm=cut&sfrm=jpg&q=70"
-            alt="product image"
-          />
+          <img src={product?.image || ""} alt={product?.name || "product"} />
         </div>
 
         <div className={styles.productInfo}>
           <h2 className={styles.productTitle}>
-            Toleriane Hydrating<br></br> Gentle Facial Cleanser
+            {product?.name || (
+              <>
+                Toleriane Hydrating
+                <br /> Gentle Facial Cleanser
+              </>
+            )}
           </h2>
-          <p className={styles.brand}>La Roche-Posay</p>
+          <p className={styles.brand}>{product?.brand || "La Roche-Posay"}</p>
           <p className={styles.description}>
-            From the skincare brand recommended by 100,000 dermatologists
-            worldwide, Toleriane Hydrating Gentle Cleanser is a daily face wash
-            for normal to dry, sensitive skin. Formulated with La Roche-Posay
-            prebiotic thermal spring water, niacinamide, and ceramide-3, this
-            face wash gently cleanses skin of dirt, makeup, and impurities while
-            maintaining skin's natural moisture barrier and pH.
+            {product?.description ||
+              "From the skincare brand recommended by 100,000 dermatologists worldwide, Toleriane Hydrating Gentle Cleanser is a daily face wash for normal to dry, sensitive skin. Formulated with La Roche-Posay prebiotic thermal spring water, niacinamide, and ceramide-3, this face wash gently cleanses skin of dirt, makeup, and impurities while maintaining skin's natural moisture barrier and pH."}
           </p>
 
           <div className={styles.ratingSection}>

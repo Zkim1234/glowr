@@ -90,10 +90,8 @@ body:has(.modal[open]) {
 
 img {
   margin-top: 10px;
-  width: 280px;
   height: auto;
   border-radius: 8px;
-  object-fit: cover;
 }
 
 .brand {
@@ -319,8 +317,8 @@ img {
 
   img {
     margin-top: 20px;
-    width: 250px;
-    height: 100%;
+    width: 300px;
+    height: auto;
   }
 
   .brand {
