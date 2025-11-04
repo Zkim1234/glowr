@@ -7,6 +7,15 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
   const [skinType, setSkinType] = React.useState(initialReview?.skinType || "");
   const [rating, setRating] = React.useState(initialReview?.rating ?? 0);
   const [reviewText, setReviewText] = React.useState(initialReview?.text || "");
+  const [photoFiles, setPhotoFiles] = React.useState([]);
+  const [photoPreviews, setPhotoPreviews] = React.useState(
+    initialReview?.photo
+      ? Array.isArray(initialReview.photo)
+        ? initialReview.photo
+        : [initialReview.photo]
+      : []
+  );
+  const fileInputRef = React.useRef(null);
   const titleRef = React.useRef(null);
   const reviewRef = React.useRef(null);
   const [errors, setErrors] = React.useState({ title: "", review: "" });
@@ -34,6 +43,7 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
       skinType: skinType || "Not specified",
       title: titleVal,
       text: reviewVal,
+      photo: photoPreviews && photoPreviews.length ? photoPreviews : null,
     };
 
     // clear errors
@@ -52,7 +62,63 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
     setSkinType(initialReview?.skinType || "");
     setRating(initialReview?.rating ?? 0);
     setReviewText(initialReview?.text || "");
+    setPhotoFiles([]);
+    setPhotoPreviews(
+      initialReview?.photo
+        ? Array.isArray(initialReview.photo)
+          ? initialReview.photo
+          : [initialReview.photo]
+        : []
+    );
   }, [initialReview]);
+
+  // revoke object URLs when component unmounts or previews change
+  React.useEffect(() => {
+    return () => {
+      photoPreviews.forEach((p) => {
+        if (p && typeof p === "string" && p.startsWith("blob:")) {
+          try {
+            URL.revokeObjectURL(p);
+          } catch (e) {}
+        }
+      });
+    };
+  }, [photoPreviews]);
+
+  function handleFileChange(e) {
+    const files = e.target.files ? Array.from(e.target.files) : [];
+    if (!files.length) return;
+    const remaining = Math.max(0, 5 - photoFiles.length);
+    const toAdd = files.slice(0, remaining);
+    const newFiles = [...photoFiles];
+    const newPreviews = [...photoPreviews];
+    toAdd.forEach((file) => {
+      const url = URL.createObjectURL(file);
+      newFiles.push(file);
+      newPreviews.push(url);
+    });
+    setPhotoFiles(newFiles);
+    setPhotoPreviews(newPreviews);
+    // reset input so same file can be selected again if removed
+    if (fileInputRef.current) fileInputRef.current.value = null;
+  }
+
+  function triggerFileSelect() {
+    fileInputRef.current?.click();
+  }
+
+  function removePhoto(index) {
+    const prev = photoPreviews[index];
+    if (prev && prev.startsWith("blob:")) {
+      try {
+        URL.revokeObjectURL(prev);
+      } catch (e) {}
+    }
+    const newFiles = photoFiles.filter((_, i) => i !== index);
+    const newPreviews = photoPreviews.filter((_, i) => i !== index);
+    setPhotoFiles(newFiles);
+    setPhotoPreviews(newPreviews);
+  }
 
   return (
     <div className={styles.reviewContainer}>
@@ -173,7 +239,43 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
         <div className={styles.photoSection}>
           <h3 className={styles.titles}>Add a photo</h3>
           <div className={styles.photoUpload}>
-            <button className={styles.uploadBtn}>+</button>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              multiple
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
+            <button
+              type="button"
+              className={styles.uploadBtn}
+              onClick={triggerFileSelect}
+            >
+              +
+            </button>
+            {photoPreviews && photoPreviews.length ? (
+              <div style={{ marginLeft: 12, display: "flex", gap: 8 }}>
+                {photoPreviews.map((p, i) => (
+                  <div key={i} style={{ textAlign: "center" }}>
+                    <img
+                      src={p}
+                      alt={`preview ${i + 1}`}
+                      style={{ width: 96, height: "auto", borderRadius: 8 }}
+                    />
+                    <div>
+                      <button
+                        type="button"
+                        onClick={() => removePhoto(i)}
+                        style={{ marginTop: 6, fontSize: 12 }}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
         </div>
 

@@ -311,6 +311,17 @@ p {
   margin-bottom: 1.25rem;
 }
 
+.review-title {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.review-skin-type {
+  font-size: 16px;
+  margin-top: 5px;
+  color: #555555;
+}
+
 /* three-dot menu */
 .review-stars {
   display: flex;
@@ -333,6 +344,12 @@ p {
   font-size: 20px;
   color: var(--text-color);
   line-height: 1.05;
+}
+
+.review-photo {
+  display: block;
+  border-radius: 8px;
+  margin-top: 8px;
 }
 
 /* date: pin to bottom-right of the review card */
@@ -436,13 +453,29 @@ p {
   font-weight: 600;
 }
 
-/* skin type style and review text spacing */
-.review .bold.mobile-regular.desktop-regular {
-  margin-top: 6px;
-  font-weight: 700;
-}
+@media (max-width: 1200px) {
+  .review-header h2 {
+    font-size: 2rem;
+  }
+  .reviews-section {
+    width: 100vw;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+    overflow: hidden;
+  }
 
-.review .mobile-regular.desktop-regular {
-  margin-top: 8px;
-  color: #333;
+  .all-reviews {
+    width: 100%;
+    max-width: none;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+
+  .review {
+    width: 100%;
+    margin: 0 0 1.25rem 0;
+    padding: 0px 12px 18px 0px;
+    box-sizing: border-box;
+  }
 }

@@ -191,14 +191,39 @@ function Product({ onBackToHome, productId = 1 }) {
                   ))}
                 </span>
                 {r.title ? (
-                  <p className="bold mobile-regular desktop-regular">
+                  <p className="bold mobile-regular desktop-regular review-title">
                     {r.title}
                   </p>
                 ) : null}
-                <p className="bold mobile-regular desktop-regular">
+                <p className="bold mobile-regular desktop-regular review-skin-type">
                   Skin Type: {r.skinType}
                 </p>
                 <p className="mobile-regular desktop-regular">{r.text}</p>
+                {r.photo ? (
+                  Array.isArray(r.photo) ? (
+                    <div
+                      className="review-photos"
+                      style={{ display: "flex", gap: 8, marginTop: 8 }}
+                    >
+                      {r.photo.map((p, idx) => (
+                        <img
+                          key={idx}
+                          src={p}
+                          alt={`review ${idx + 1}`}
+                          className="review-photo"
+                          style={{ width: 120, height: "auto" }}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <img
+                      src={r.photo}
+                      alt="review"
+                      className="review-photo"
+                      style={{ width: 120, height: "auto", marginTop: 8 }}
+                    />
+                  )
+                ) : null}
 
                 <div className="review-actions" style={{ marginTop: 8 }}>
                   <div
