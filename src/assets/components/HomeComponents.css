@@ -52,26 +52,96 @@
    TOP RANKING SECTION
    =========================== */
 
-.RankedItem {
-  margin: 0;
-  padding: 1rem 1.2rem;
+/* Large #1 Ranked Item Card */
+.RankedItemTop1 {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  min-width: 0;
+  background: #ffffff;
+  border: none;
+  border-radius: 20px 0 0 0;
+  overflow: hidden;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.RankedItemTop1:hover {
+  opacity: 0.95;
+}
+
+.Top1ImageContainer {
+  width: calc(100% - 4px);
+  height: 75%;
+  margin: 2px;
+  margin-bottom: 0;
+  background: white;
+  border: 4px solid #F1F5F7;
+  border-radius: 18px 0 0 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  width: 320px;
-  min-width: 320px;
-  min-height: 70px;
+  justify-content: center;
+}
+
+.Top1ImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.Top1RankingBox {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+.Top1Description {
+  padding: 1rem;
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  background: #F1F5F7;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 25%;
+}
+
+.Top1Description > span:last-child {
+  flex: 1;
+  text-align: left;
+}
+
+/* Smaller Ranked Items (#2-#7) */
+.RankedItem {
+  margin: 0;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  min-width: 0;
+  min-height: 80px;
   height: fit-content;
-  border-radius: 12px;
-  background: #fafafa;
+  border-radius: 8px;
+  background: #F1F5F7;
   border: none;
   cursor: pointer;
   box-sizing: border-box;
-  flex-shrink: 0;
 }
 
 .RankedItem:hover {
-  background: #f0f0f0;
+  background: #e0e8eb;
 }
 
 .RankedItem:focus {
@@ -81,25 +151,25 @@
 
 .Ranking {
   font-weight: bold;
-  font-size: 18px;
-  min-width: 25px;
+  font-size: 24px;
+  min-width: 30px;
   text-align: left;
-  color: #333;
+  color: #000;
   flex-shrink: 0;
 }
 
 .RankingAndImg {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
 }
 
 .RankingAndImg img {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  margin: 0;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 4px;
   flex-shrink: 0;
+  background: #6F97AD;
 }
 
 .ProductInfo {
@@ -146,6 +216,18 @@ p {
   align-items: center;
   gap: 0.3rem;
   margin-top: 0.1rem;
+}
+
+.Rating p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ReviewCount {
+  font-size: 13px;
+  color: #666;
+  margin-left: 0.2rem;
 }
 
 .Rating::before {
@@ -235,6 +317,59 @@ p {
   justify-content: center;
   align-items: flex-end;
   position: relative;
+  width: 100%;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 30em;
+  overflow: hidden;
+}
+
+.slideshow-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30em;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slideshow-image.active {
+  opacity: 1;
+  position: relative;
+}
+
+.slideshow-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.indicator.active {
+  background-color: #ffffff;
 }
 
 /* ===========================
@@ -325,9 +460,13 @@ p {
     margin: 0;
   }
 
-  .PromoBoard img {
+  .slideshow-container {
+    height: 30em;
+  }
+
+  .PromoBoard .slideshow-image {
     width: 100%;
-    height: 550px;
+    height: 30em;
     object-fit: cover;
   }
 }
@@ -338,7 +477,13 @@ p {
    =========================== */
 
 @media screen and (min-width: 400px) {
-  .PromoBoard img {
+  .slideshow-container {
+    height: 30em;
+  }
+
+  .PromoBoard .slideshow-image {
     width: 100%;
+    height: 30em;
+    object-fit: cover;
   }
 }

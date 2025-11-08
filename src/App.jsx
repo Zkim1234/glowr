@@ -64,49 +64,66 @@ function App() {
         <PromoBoard />
       </div>
       <div className="TopRankSection">
-        <h3>TOP RANKED</h3>
+        <h3>TOP RANKING</h3>
         <div className="TopRankingList">
-          <div className="Top1">
-            {sortedProducts.slice(0, 3).map((product, index) => (
-              <TopRankedItem
-                key={product.id}
-                ranking={index + 1}
-                image={<img src={product.image} width="75" alt="Product" />}
-                brand={product.brand}
-                product={product.name}
-                rating={product.rating}
-                productId={product.id}
-                onProductClick={navigateToProduct}
-              />
-            ))}
+          {/* Large #1 item on the left */}
+          <div className="Top1Card">
+            {sortedProducts[0] && (
+              <div
+                className="RankedItemTop1"
+                onClick={() => navigateToProduct(sortedProducts[0].id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    navigateToProduct(sortedProducts[0].id);
+                  }
+                }}
+              >
+                <div className="Top1ImageContainer">
+                  <img src={sortedProducts[0].image} alt={sortedProducts[0].name} />
+                </div>
+                <div className="Top1Description">
+                  <span className="Top1RankingBox">1</span>
+                  <span>Toleriane Hydrating Gentle Facial Cleanser</span>
+                </div>
+              </div>
+            )}
           </div>
-          <div className="Top4">
-            {sortedProducts.slice(3, 6).map((product, index) => (
-              <TopRankedItem
-                key={product.id}
-                ranking={index + 4}
-                image={<img src={product.image} width="75" alt="Product" />}
-                brand={product.brand}
-                product={product.name}
-                rating={product.rating}
-                productId={product.id}
-                onProductClick={navigateToProduct}
-              />
-            ))}
-          </div>
-          <div className="Top4">
-            {sortedProducts.slice(6, 9).map((product, index) => (
-              <TopRankedItem
-                key={product.id}
-                ranking={index + 7}
-                image={<img src={product.image} width="75" alt="Product" />}
-                brand={product.brand}
-                product={product.name}
-                rating={product.rating}
-                productId={product.id}
-                onProductClick={navigateToProduct}
-              />
-            ))}
+          
+          {/* Items #2-#7 in two columns on the right */}
+          <div className="Top2to7Container">
+            <div className="TopColumn">
+              {sortedProducts.slice(1, 4).map((product, index) => (
+                <TopRankedItem
+                  key={product.id}
+                  ranking={index + 2}
+                  image={<img src={product.image} alt="Product" />}
+                  brand={product.brand}
+                  product={product.name}
+                  rating={product.rating}
+                  reviewCount={product.reviewCount}
+                  productId={product.id}
+                  onProductClick={navigateToProduct}
+                />
+              ))}
+            </div>
+            <div className="TopColumn">
+              {sortedProducts.slice(4, 7).map((product, index) => (
+                <TopRankedItem
+                  key={product.id}
+                  ranking={index + 5}
+                  image={<img src={product.image} alt="Product" />}
+                  brand={product.brand}
+                  product={product.name}
+                  rating={product.rating}
+                  reviewCount={product.reviewCount}
+                  productId={product.id}
+                  onProductClick={navigateToProduct}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

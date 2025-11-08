@@ -28,35 +28,46 @@
   display: flex;
   flex-direction: column;
   margin: 1.5rem 0;
-  padding: 0;
+  padding: 0 1rem;
 }
 
 .TopRankSection h3 {
   font-size: 18px;
-  font-weight: 600;
-  margin: 1rem;
-  color: #333;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #000;
+  text-transform: uppercase;
 }
 
 .TopRankingList {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  gap: 0.8rem;
-  padding: 0 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.TopRankingList::-webkit-scrollbar {
-  display: none;
+.Top1Card {
+  flex: 0 0 auto;
+  min-width: 0;
 }
 
-.Top1,
-.Top4 {
-  display: contents;
+.Top2to7Container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.TopColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.57rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .ForYouSection {
@@ -138,12 +149,11 @@
   }
 
   .TopRankingList {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-auto-flow: row;
-    gap: 1.5rem;
-    overflow: visible;
-    padding: 0;
+    gap: 2rem;
+  }
+
+  .RankedItemTop1 {
+    max-width: 350px;
   }
 
   .ForYouList {
@@ -159,14 +169,35 @@
 }
 
 /* Mobile */
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 768px) {
   .TopRankingList {
-    overflow-x: auto;
-    overflow-y: hidden;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .Top1,
-  .Top4 {
-    gap: 3em;
+  .RankedItemTop1 {
+    width: 100%;
+    min-width: 100%;
+    border-radius: 12px;
+  }
+
+  .Top1ImageContainer {
+    height: 250px;
+  }
+
+  .Top2to7Container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+  .TopRankingList {
+    flex-wrap: wrap;
+  }
+
+  .RankedItemTop1 {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 1rem;
   }
 }
