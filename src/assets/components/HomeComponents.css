@@ -4,7 +4,7 @@
 
 .Header {
   display: flex;
-  align-items: center;
+  align-items: end;
   flex-direction: column;
   margin: 10px;
   padding: 1rem 1rem 1rem 1rem;
@@ -15,6 +15,38 @@
   width: 120px;
   height: auto;
   object-fit: cover;
+}
+
+/* Navigation Links */
+.NavLinks {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.NavLink {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 21px;
+  font-weight: 500;
+  cursor: pointer;
+  /* padding: 0.5rem 0.75rem; */
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-family: "Gudea", sans-serif;
+}
+
+.NavLink:hover {
+  background: #e8eef1;
+  color: #6F97AD;
+}
+
+.NavLink:active {
+  transform: scale(0.95);
 }
 
 /* Search Bar Styles */
@@ -137,10 +169,14 @@
   cursor: pointer;
   box-sizing: border-box;
   overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 .RankedItem:hover {
-  opacity: 0.9;
+  background: #e8eef1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
 }
 
 .RankedItem:focus {
@@ -259,23 +295,27 @@ p {
 .CardContainer {
   background: transparent;
   border-radius: 8px;
-  padding: 0;
+  margin: 0 2px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 140px;
-  min-width: 140px;
-  flex-shrink: 0;
-  transition: opacity 0.2s ease;
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 0;
+  max-width: 200px;
+  transition: all 0.2s ease;
 }
 
 .CardContainer:hover {
-  opacity: 0.8;
+  background: #e8eef1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .ForYouImage {
-  width: 140px;
-  height: 140px;
+  width: 100%;
+  aspect-ratio: 1;
   background: #a8b8b8;
   border-radius: 8px;
   display: flex;
@@ -302,20 +342,16 @@ p {
   margin: 0;
   font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: #999;
 }
 
 .ForYouProduct {
   margin: 0;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.4;
-  color: #333;
+  color: #000000;
   font-weight: normal;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 .ForYouRating {
@@ -437,14 +473,28 @@ p {
   .Header {
     flex-direction: row;
     justify-content: space-between;
-    padding: 0rem 2rem 1rem 2rem;
+    padding: 0;
     margin: 0;
     margin-bottom: 10px;
+    gap: 2rem;
+  }
+
+  .Header img {
+    order: 1;
+  }
+
+  .NavLinks {
+    gap: 0.5rem;
+    order: 2;
+    margin-right: -2rem;
+    margin-bottom: -0.3rem;
   }
 
   .SearchContainer {
     max-width: 500px;
     width: 40%;
+    order: 3;
+    margin-left: auto;
   }
 
   .SearchBar {
@@ -477,9 +527,8 @@ p {
 
   /* For You Section - Desktop */
   .CardContainer {
-    width: 200px;
-    height: 280px;
-    padding: 1rem;
+    max-width: 200px;
+    flex: 1 1 0;
   }
 
   .ForYouImage img {

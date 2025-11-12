@@ -63,7 +63,7 @@ function App() {
       <div className="PromoBoard">
         <PromoBoard />
       </div>
-      <div className="TopRankSection">
+      <div id="top-ranking" className="TopRankSection">
         <h3>TOP RANKING</h3>
         <div className="TopRankingList">
           {sortedProducts.slice(0, 6).map((product, index) => (
@@ -81,7 +81,7 @@ function App() {
           ))}
         </div>
       </div>
-        <div className="ForYouSection">
+        <div id="for-you" className="ForYouSection">
           <div className="ForYouHeader">
             <h3>FOR YOU</h3>
             <a href="#" className="ViewMoreLink">view more →</a>
@@ -101,7 +101,7 @@ function App() {
             ))}
           </div>
         </div>
-        <div className="HitIngredientsSection">
+        <div id="hit-ingredients" className="HitIngredientsSection">
           <h3>HIT INGREDIENTS THIS YEAR</h3>
           <div className="IngredientsList">
             <HitIngredients
