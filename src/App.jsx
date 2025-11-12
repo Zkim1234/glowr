@@ -58,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <div className="Navbar">
-        <NavBar />
+        <NavBar onProductClick={navigateToProduct} />
       </div>
       <div className="PromoBoard">
         <PromoBoard />
