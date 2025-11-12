@@ -1,10 +1,27 @@
 import "./HomeComponents.css";
 
-function ForYou({ image, description, brand, productId, onProductClick }) {
+function ForYou({ image, description, brand, rating, reviewCount, productId, onProductClick }) {
   const handleClick = () => {
     if (onProductClick && productId) {
       onProductClick(productId);
     }
+  };
+
+  // Format review count (e.g., "560,385" -> "(560.4k)")
+  const formatReviewCount = (count) => {
+    if (!count) return "";
+    const num = parseFloat(count.replace(/,/g, ""));
+    if (num >= 1000) {
+      const kValue = num / 1000;
+      if (kValue < 10) {
+        return `(${kValue.toFixed(1)}k)`;
+      } else if (kValue < 100) {
+        return `(${kValue.toFixed(1)}k)`;
+      } else {
+        return `(${kValue.toFixed(0)}k)`;
+      }
+    }
+    return `(${count})`;
   };
 
   return (
@@ -23,7 +40,13 @@ function ForYou({ image, description, brand, productId, onProductClick }) {
     >
       <div className="ForYouImage">{image}</div>
       <div className="ForYouDescription">
-        <p>{description}</p>
+        <p className="ForYouBrand">{brand}</p>
+        <p className="ForYouProduct">{description}</p>
+        <div className="ForYouRating">
+          <span className="RatingStars">★</span>
+          <span className="RatingValue">{rating}</span>
+          {reviewCount && <span className="ReviewCount">{formatReviewCount(reviewCount)}</span>}
+        </div>
       </div>
     </div>
   );

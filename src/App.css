@@ -40,53 +40,50 @@
 }
 
 .TopRankingList {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 1.5rem;
-  align-items: flex-start;
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
-}
-
-.Top1Card {
-  flex: 0 0 auto;
-  min-width: 0;
-}
-
-.Top2to7Container {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  flex: 1;
-  min-width: 0;
-}
-
-.TopColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.57rem;
-  flex: 1;
-  min-width: 0;
 }
 
 .ForYouSection {
   margin: 1.5rem 0;
-  padding: 0;
+  padding: 0 10rem;
+}
+
+.ForYouHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .ForYouSection h3 {
   font-size: 18px;
-  font-weight: 600;
-  margin: 1rem;
+  font-weight: 700;
+  margin: 0;
   color: #333;
+  text-transform: uppercase;
+}
+
+.ViewMoreLink {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.ViewMoreLink:hover {
+  text-decoration: underline;
 }
 
 .ForYouList {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  padding: 0 1rem;
+  padding: 0;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -99,9 +96,9 @@
 .IngredientsList {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
-  margin: 1rem 0 2rem 0;
+  margin: 0;
 }
 
 .HitIngredientsSection {
@@ -111,16 +108,52 @@
 
 .HitIngredientsSection h3 {
   font-size: 18px;
-  font-weight: 600;
-  margin: 1rem 0;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
   color: #333;
-  text-align: center;
+  text-transform: uppercase;
 }
 
 .PromoBoard {
   margin: 0 auto;
   display: flex;
   align-items: center;
+}
+
+.Footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.FooterTop {
+  width: 100%;
+  flex: 3;
+  background: #ffffff;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
+
+.FooterBottom {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  flex: 1;
+  background: #6F97AD;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.FooterBottom p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
 }
 
 /* Desktop */
@@ -148,12 +181,12 @@
     margin: 0 0 1.5rem 0;
   }
 
-  .TopRankingList {
-    gap: 2rem;
+  .ForYouHeader {
+    margin-bottom: 1.5rem;
   }
 
-  .RankedItemTop1 {
-    max-width: 350px;
+  .TopRankingList {
+    gap: 2rem;
   }
 
   .ForYouList {
@@ -164,40 +197,45 @@
 
   .IngredientsList {
     justify-content: center;
-    gap: 3rem;
+    gap: 13rem;
   }
 }
 
 /* Mobile */
 @media screen and (max-width: 768px) {
   .TopRankingList {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     gap: 1rem;
   }
 
-  .RankedItemTop1 {
-    width: 100%;
-    min-width: 100%;
-    border-radius: 12px;
+  .RankedItem {
+    flex-direction: row;
   }
 
-  .Top1ImageContainer {
-    height: 250px;
+  .RankedItemImage {
+    width: 120px;
+    min-width: 120px;
+    height: 120px;
   }
 
-  .Top2to7Container {
-    flex-direction: column;
+  .ProductInfo {
+    padding: 0.75rem;
+  }
+
+  .Ranking {
+    font-size: 24px;
+  }
+
+  .ProductName {
+    font-size: 13px;
   }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1023px) {
   .TopRankingList {
-    flex-wrap: wrap;
-  }
-
-  .RankedItemTop1 {
-    width: 100%;
-    min-width: 100%;
-    margin-bottom: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }

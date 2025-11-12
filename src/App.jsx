@@ -66,101 +66,67 @@ function App() {
       <div className="TopRankSection">
         <h3>TOP RANKING</h3>
         <div className="TopRankingList">
-          {/* Large #1 item on the left */}
-          <div className="Top1Card">
-            {sortedProducts[0] && (
-              <div
-                className="RankedItemTop1"
-                onClick={() => navigateToProduct(sortedProducts[0].id)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    navigateToProduct(sortedProducts[0].id);
-                  }
-                }}
-              >
-                <div className="Top1ImageContainer">
-                  <img src={sortedProducts[0].image} alt={sortedProducts[0].name} />
-                </div>
-                <div className="Top1Description">
-                  <span className="Top1RankingBox">1</span>
-                  <span>Toleriane Hydrating Gentle Facial Cleanser</span>
-                </div>
-              </div>
-            )}
-          </div>
-          
-          {/* Items #2-#7 in two columns on the right */}
-          <div className="Top2to7Container">
-            <div className="TopColumn">
-              {sortedProducts.slice(1, 4).map((product, index) => (
-                <TopRankedItem
-                  key={product.id}
-                  ranking={index + 2}
-                  image={<img src={product.image} alt="Product" />}
-                  brand={product.brand}
-                  product={product.name}
-                  rating={product.rating}
-                  reviewCount={product.reviewCount}
-                  productId={product.id}
-                  onProductClick={navigateToProduct}
-                />
-              ))}
-            </div>
-            <div className="TopColumn">
-              {sortedProducts.slice(4, 7).map((product, index) => (
-                <TopRankedItem
-                  key={product.id}
-                  ranking={index + 5}
-                  image={<img src={product.image} alt="Product" />}
-                  brand={product.brand}
-                  product={product.name}
-                  rating={product.rating}
-                  reviewCount={product.reviewCount}
-                  productId={product.id}
-                  onProductClick={navigateToProduct}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="ForYouSection">
-        <h3>For You</h3>
-        <div className="ForYouList">
-          {sortedProducts.slice(0, 5).map((product) => (
-            <ForYou
+          {sortedProducts.slice(0, 6).map((product, index) => (
+            <TopRankedItem
               key={product.id}
-              image={<img src={product.image} width="100" alt={product.name} />}
-              description={product.name}
+              ranking={String(index + 1).padStart(2, '0')}
+              image={<img src={product.image} alt="Product" />}
               brand={product.brand}
+              product={product.name}
+              rating={product.rating}
+              reviewCount={product.reviewCount}
               productId={product.id}
               onProductClick={navigateToProduct}
             />
           ))}
         </div>
       </div>
-      <div className="HitIngredientsSection">
-        <h3>HIT INGREDIENTS THIS YEAR</h3>
-        <div className="IngredientsList">
-          <HitIngredients
-            image={<img src="/retinoids.png" width="100" alt="Ingredient 1" />}
-            name="Retinoids"
-          />
-          <HitIngredients
-            image={<img src="/sunscreen.png" width="100" alt="Ingredient 1" />}
-            name="Mineral Sunscreen"
-          />
-          <HitIngredients
-            image={<img src="/vitaminc.png" width="100" alt="Ingredient 1" />}
-            name="Vitamin C"
-          />
+        <div className="ForYouSection">
+          <div className="ForYouHeader">
+            <h3>FOR YOU</h3>
+            <a href="#" className="ViewMoreLink">view more →</a>
+          </div>
+          <div className="ForYouList">
+            {sortedProducts.slice(0, 5).map((product) => (
+              <ForYou
+                key={product.id}
+                image={<img src={product.image} width="100" alt={product.name} />}
+                description={product.name}
+                brand={product.brand}
+                rating={product.rating}
+                reviewCount={product.reviewCount}
+                productId={product.id}
+                onProductClick={navigateToProduct}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+        <div className="HitIngredientsSection">
+          <h3>HIT INGREDIENTS THIS YEAR</h3>
+          <div className="IngredientsList">
+            <HitIngredients
+              image={<img src="/round-retinoids.png" width="100" alt="Ingredient 1" />}
+              name="Retinoids"
+            />
+            <HitIngredients
+              image={<img src="/round-sunscreen.png" width="100" alt="Ingredient 2" />}
+              name="Sunscreen"
+            />
+            <HitIngredients
+              image={<img src="/round-vitaminc.png" width="100" alt="Ingredient 3" />}
+              name="Vitamin C"
+            />
+            <HitIngredients
+              image={<img src="/round-peptide.png" width="100" alt="Ingredient 4" />}
+              name="Peptides"
+            />
+          </div>
+        </div>
       <footer className="Footer">
-        <p>© 2025 Glowr. All rights reserved.</p>
+        <div className="FooterTop"></div>
+        <div className="FooterBottom">
+          <p>© GLOWR, 2025. All rights reserved</p>
+        </div>
       </footer>
     </div>
   );

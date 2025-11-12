@@ -47,15 +47,18 @@ function TopRankedItem({
         }
       }}
     >
-      <div className="RankingAndImg">
-        <div className="Ranking">{ranking}</div>
-        <div>{image}</div>
+      <div className="RankedItemImage">
+        {image}
       </div>
       <div className="ProductInfo">
-        <p className="BrandName">{brand}</p>
+        <div className="BrandAndRanking">
+          <p className="BrandName">{brand}</p>
+          <div className="Ranking">{ranking}</div>
+        </div>
         <p className="ProductName">{product}</p>
         <div className="Rating">
-          <p>{rating}</p>
+          <span className="RatingStars">★</span>
+          <span className="RatingValue">{rating}</span>
           {reviewCount && <span className="ReviewCount">{formatReviewCount(reviewCount)}</span>}
         </div>
       </div>
