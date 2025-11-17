@@ -164,75 +164,6 @@
    TOP RANKING SECTION
    =========================== */
 
-/* Large #1 Ranked Item Card */
-.RankedItemTop1 {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  min-width: 0;
-  background: #ffffff;
-  border: none;
-  border-radius: 20px 0 0 0;
-  overflow: hidden;
-  cursor: pointer;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-
-.RankedItemTop1:hover {
-  opacity: 0.95;
-}
-
-.Top1ImageContainer {
-  width: calc(100% - 4px);
-  height: 75%;
-  margin: 2px;
-  margin-bottom: 0;
-  background: white;
-  border: 4px solid #F1F5F7;
-  border-radius: 18px 0 0 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.Top1ImageContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.Top1RankingBox {
-  display: inline-block;
-  font-weight: bold;
-  font-size: 24px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
-  line-height: 1;
-}
-
-.Top1Description {
-  padding: 1rem;
-  margin: 0;
-  color: #333;
-  font-size: 14px;
-  line-height: 1.4;
-  background: #F1F5F7;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex: 1;
-  min-height: 25%;
-}
-
-.Top1Description > span:last-child {
-  flex: 1;
-  text-align: left;
-}
 
 /* Top Ranked Items */
 .RankedItem {
@@ -243,6 +174,7 @@
   gap: 0;
   width: 100%;
   min-width: 0;
+  height: 150px;
   border-radius: 12px;
   background: #f5f5f5;
   border: none;
@@ -265,9 +197,9 @@
 }
 
 .RankedItemImage {
-  width: 180px;
-  min-width: 180px;
-  height: 180px;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
   background: #ffffff;
   display: flex;
   align-items: center;
@@ -277,8 +209,8 @@
 }
 
 .RankedItemImage img {
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   object-fit: cover;
 }
 
@@ -573,13 +505,13 @@ p {
 
   /* Top Ranking Section - Desktop */
   .RankedItemImage {
-    width: 200px;
-    min-width: 200px;
-    height: 200px;
+    width: 150px;
+    min-width: 100px;
+    height: 150px;
   }
 
   .ProductInfo {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .BrandName {
@@ -591,7 +523,7 @@ p {
   }
 
   .Ranking {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   /* For You Section - Desktop */
