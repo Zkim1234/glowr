@@ -6,15 +6,32 @@ function TopRankedItem({
   brand,
   product,
   rating,
+  reviewCount,
+  productId,
   onProductClick,
 }) {
-  const isLaRochePosay = brand === "La Roche-Posay";
-
   const handleClick = () => {
-    if (isLaRochePosay && onProductClick) {
-      onProductClick();
+    if (onProductClick && productId) {
+      onProductClick(productId);
     }
-    // All items are clickable, but only La Roche-Posay navigates
+  };
+
+  // Format review count (e.g., "560,385" -> "(560.4k)" or "8,723" -> "(8.7k)")
+  const formatReviewCount = (count) => {
+    if (!count) return "";
+    const num = parseFloat(count.replace(/,/g, ""));
+    if (num >= 1000) {
+      const kValue = num / 1000;
+      // Show 1 decimal place if less than 10k, otherwise show more precision
+      if (kValue < 10) {
+        return `(${kValue.toFixed(1)}k)`;
+      } else if (kValue < 100) {
+        return `(${kValue.toFixed(1)}k)`;
+      } else {
+        return `(${kValue.toFixed(0)}k)`;
+      }
+    }
+    return `(${count})`;
   };
 
   return (
@@ -30,15 +47,19 @@ function TopRankedItem({
         }
       }}
     >
-      <div className="RankingAndImg">
-        <div className="Ranking">{ranking}</div>
-        <div>{image}</div>
+      <div className="RankedItemImage">
+        {image}
       </div>
       <div className="ProductInfo">
-        <p className="BrandName">{brand}</p>
+        <div className="BrandAndRanking">
+          <p className="BrandName">{brand}</p>
+          <div className="Ranking">{ranking}</div>
+        </div>
         <p className="ProductName">{product}</p>
         <div className="Rating">
-          <p>{rating}</p>
+          <span className="RatingStars">★</span>
+          <span className="RatingValue">{rating}</span>
+          {reviewCount && <span className="ReviewCount">{formatReviewCount(reviewCount)}</span>}
         </div>
       </div>
     </div>

@@ -7,8 +7,14 @@
   box-sizing: border-box;
   overflow-y: auto;
   border: none;
-  background: #f1f5f7;
+  background: #e5eef2;
   scrollbar-width: none;
+}
+
+dialog::backdrop,
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px) saturate(120%);
 }
 
 body:has(.modal[open]) {
@@ -84,10 +90,8 @@ body:has(.modal[open]) {
 
 img {
   margin-top: 10px;
-  width: 280px;
   height: auto;
   border-radius: 8px;
-  object-fit: cover;
 }
 
 .brand {
@@ -123,6 +127,10 @@ img {
   background: #e7e7e733;
   padding: 20px;
   border-radius: 8px;
+}
+
+.titlesStar {
+  margin-bottom: 0px;
 }
 
 .titleSection {
@@ -309,8 +317,8 @@ img {
 
   img {
     margin-top: 20px;
-    width: 250px;
-    height: 100%;
+    width: 300px;
+    height: auto;
   }
 
   .brand {
