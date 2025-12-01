@@ -18,20 +18,33 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
   const fileInputRef = React.useRef(null);
   const titleRef = React.useRef(null);
   const reviewRef = React.useRef(null);
-  const [errors, setErrors] = React.useState({ title: "", review: "" });
+  const [errors, setErrors] = React.useState({
+    title: "",
+    review: "",
+    rating: "",
+  });
 
   function handlePost() {
     // validate required fields
     const titleVal = title.trim();
     const reviewVal = reviewText.trim();
+
     if (!titleVal) {
-      setErrors({ title: "Title is required", review: "" });
+      setErrors({ title: "Title is required", review: "", rating: "" });
       titleRef.current?.focus();
       return;
     }
     if (!reviewVal) {
-      setErrors({ title: "", review: "Review is required" });
+      setErrors({ title: "", review: "Review is required", rating: "" });
       reviewRef.current?.focus();
+      return;
+    }
+    if (!rating || rating < 1) {
+      setErrors({
+        title: "",
+        review: "",
+        rating: "Please select at least 1 star",
+      });
       return;
     }
 
@@ -47,7 +60,7 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
     };
 
     // clear errors
-    setErrors({ title: "", review: "" });
+    setErrors({ title: "", review: "", rating: "" });
 
     if (typeof onSubmit === "function") {
       onSubmit(newReview);
@@ -157,10 +170,15 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
                   key={s}
                   src={s <= rating ? "/starFilled.svg" : "/starUnfilled.svg"}
                   alt={s <= rating ? `filled star ${s}` : `empty star ${s}`}
-                  onClick={() => setRating(s)}
+                  onClick={() => {
+                    setRating(s);
+                    if (errors.rating) setErrors((p) => ({ ...p, rating: "" }));
+                  }}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       setRating(s);
+                      if (errors.rating)
+                        setErrors((p) => ({ ...p, rating: "" }));
                       e.preventDefault();
                     }
                   }}
@@ -169,6 +187,11 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
                 />
               ))}
             </div>
+            {errors.rating ? (
+              <div style={{ color: "#c0392b", fontSize: 13, marginTop: 6 }}>
+                {errors.rating}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

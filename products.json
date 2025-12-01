@@ -17,6 +17,80 @@
       { "label": "Oily Skin", "height": "20%" },
       { "label": "Normal Skin", "height": "80%" },
       { "label": "Sensitive Skin", "height": "80%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah M.",
+        "rating": 5,
+        "date": "2024-11-15",
+        "title": "Perfect for sensitive skin!",
+        "skinType": "Sensitive",
+        "text": "This cleanser is amazing! It's so gentle yet effective. My skin feels clean but not stripped after using it. I've been using it for 3 months and have noticed a significant improvement in my skin's texture."
+      },
+      {
+        "id": 2,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-10",
+        "title": "Great gentle cleanser",
+        "skinType": "Dry",
+        "text": "Love how hydrating this cleanser is. Doesn't leave my skin feeling tight like other cleansers do. The price point is also very reasonable for the quality."
+      },
+      {
+        "id": 3,
+        "name": "Maria R.",
+        "rating": 5,
+        "date": "2024-11-08",
+        "title": "Holy grail product!",
+        "skinType": "Normal",
+        "text": "I've been using La Roche-Posay products for years and this cleanser is definitely a winner. Removes makeup well and doesn't irritate my skin at all."
+      },
+      {
+        "id": 4,
+        "name": "Emma K.",
+        "rating": 4,
+        "date": "2024-11-03",
+        "title": "Gentle and effective",
+        "skinType": "Combination",
+        "text": "Works well for my combination skin. Doesn't make my T-zone oily or dry out my cheeks. Takes off makeup nicely too."
+      },
+      {
+        "id": 5,
+        "name": "Anonymous",
+        "rating": 5,
+        "date": "2024-10-28",
+        "title": "Best cleanser ever!",
+        "skinType": "Sensitive",
+        "text": "I have extremely sensitive skin and this is the only cleanser that doesn't cause irritation. Been using it for over a year now."
+      },
+      {
+        "id": 6,
+        "name": "Amanda C.",
+        "rating": 4,
+        "date": "2024-10-25",
+        "title": "Good for daily use",
+        "skinType": "Normal",
+        "text": "Nice gentle cleanser for everyday use. Not too drying and removes most makeup. Would repurchase."
+      },
+      {
+        "id": 7,
+        "name": "Anonymous",
+        "rating": 3,
+        "date": "2024-10-20",
+        "title": "Decent but not amazing",
+        "skinType": "Oily",
+        "text": "It's okay for my oily skin but I need something stronger. Good for morning cleanse but I use a different one at night."
+      },
+      {
+        "id": 8,
+        "name": "Sophie H.",
+        "rating": 5,
+        "date": "2024-10-15",
+        "title": "Dermatologist recommended",
+        "skinType": "Sensitive",
+        "text": "My dermatologist recommended this and it's been amazing for my rosacea. No flare-ups since I started using it."
+      }
     ]
   },
   {
@@ -37,6 +111,62 @@
       { "label": "Oily Skin", "height": "30%" },
       { "label": "Normal Skin", "height": "90%" },
       { "label": "Sensitive Skin", "height": "40%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Lisa K.",
+        "rating": 4,
+        "date": "2024-11-12",
+        "title": "Great anti-aging results",
+        "skinType": "Normal",
+        "text": "I've been using this for 6 weeks and I can definitely see a difference in my fine lines. The texture is rich but absorbs well. Would recommend!"
+      },
+      {
+        "id": 2,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-05",
+        "title": "Good value moisturizer",
+        "skinType": "Dry",
+        "text": "For the price point, this is a solid anti-aging moisturizer. It's hydrating and I like that it has retinol and vitamin C. Slight fragrance but doesn't bother me."
+      },
+      {
+        "id": 3,
+        "name": "Nicole B.",
+        "rating": 5,
+        "date": "2024-10-30",
+        "title": "Amazing results!",
+        "skinType": "Combination",
+        "text": "This moisturizer has transformed my skin! Fine lines are visibly reduced and my skin feels so much firmer. The triple power formula really works."
+      },
+      {
+        "id": 4,
+        "name": "Anonymous",
+        "rating": 3,
+        "date": "2024-10-22",
+        "title": "Too heavy for me",
+        "skinType": "Oily",
+        "text": "While it works well for anti-aging, it's a bit too heavy for my oily skin. Caused some breakouts initially but skin adjusted after a week."
+      },
+      {
+        "id": 5,
+        "name": "Diana M.",
+        "rating": 4,
+        "date": "2024-10-18",
+        "title": "Solid anti-aging cream",
+        "skinType": "Normal",
+        "text": "Good moisturizer with visible results. Texture is rich but not greasy. The only downside is the fragrance which can be a bit strong."
+      },
+      {
+        "id": 6,
+        "name": "Patricia S.",
+        "rating": 5,
+        "date": "2024-10-10",
+        "title": "Best drugstore anti-aging",
+        "skinType": "Dry",
+        "text": "For a drugstore product, this is exceptional. My wrinkles have definitely improved and my skin looks more radiant. Great value!"
+      }
     ]
   },
   {
@@ -57,6 +187,71 @@
       { "label": "Oily Skin", "height": "25%" },
       { "label": "Normal Skin", "height": "85%" },
       { "label": "Sensitive Skin", "height": "75%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ashley R.",
+        "rating": 5,
+        "date": "2024-11-18",
+        "title": "Love the cream-to-foam concept!",
+        "skinType": "Dry",
+        "text": "This cleanser is perfect for my dry skin. Starts as a cream so it's not stripping, then foams up to really clean. Ceramides really help maintain moisture barrier."
+      },
+      {
+        "id": 2,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-14",
+        "title": "Great for sensitive skin",
+        "skinType": "Sensitive",
+        "text": "CeraVe products are always gentle and effective. This cleanser removes everything without irritation. The fragrance-free formula is a plus."
+      },
+      {
+        "id": 3,
+        "name": "Brittany L.",
+        "rating": 5,
+        "date": "2024-11-09",
+        "title": "Dermatologist approved!",
+        "skinType": "Normal",
+        "text": "My dermatologist recommended CeraVe and this cleanser is fantastic. Removes makeup completely and leaves skin soft, not tight."
+      },
+      {
+        "id": 4,
+        "name": "Stephanie K.",
+        "rating": 4,
+        "date": "2024-11-02",
+        "title": "Good for combination skin",
+        "skinType": "Combination",
+        "text": "Works well for my combination skin. Doesn't over-dry my cheeks or leave my T-zone feeling oily. Nice balance."
+      },
+      {
+        "id": 5,
+        "name": "Anonymous",
+        "rating": 3,
+        "date": "2024-10-26",
+        "title": "Not enough for oily skin",
+        "skinType": "Oily",
+        "text": "It's gentle but not strong enough for my oily, acne-prone skin. Good for morning use but I need something stronger at night."
+      },
+      {
+        "id": 6,
+        "name": "Christina M.",
+        "rating": 5,
+        "date": "2024-10-20",
+        "title": "Perfect daily cleanser",
+        "skinType": "Dry",
+        "text": "This has become my holy grail cleanser. The ceramides and hyaluronic acid really make a difference. Skin feels clean but hydrated."
+      },
+      {
+        "id": 7,
+        "name": "Lauren S.",
+        "rating": 4,
+        "date": "2024-10-12",
+        "title": "Gentle and effective",
+        "skinType": "Normal",
+        "text": "Really gentle cleanser that still gets the job done. Removes all my makeup including waterproof mascara. Great value for money."
+      }
     ]
   },
   {
@@ -77,6 +272,53 @@
       { "label": "Oily Skin", "height": "20%" },
       { "label": "Normal Skin", "height": "80%" },
       { "label": "Sensitive Skin", "height": "80%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Vanessa J.",
+        "rating": 4,
+        "date": "2024-11-16",
+        "title": "Great for crow's feet",
+        "skinType": "Normal",
+        "text": "I've been using this eye cream for 2 months and my crow's feet are definitely less noticeable. The retinol is gentle enough for the eye area."
+      },
+      {
+        "id": 2,
+        "name": "Rebecca F.",
+        "rating": 5,
+        "date": "2024-11-11",
+        "title": "Amazing results on dark circles",
+        "skinType": "Dry",
+        "text": "This eye cream has significantly reduced my dark circles. The texture is rich but not greasy. I use it every night and see real improvement."
+      },
+      {
+        "id": 3,
+        "name": "Anonymous",
+        "rating": 3,
+        "date": "2024-11-07",
+        "title": "Too strong for my sensitive eyes",
+        "skinType": "Sensitive",
+        "text": "The product works well but caused some irritation around my eyes. Had to use it every other night instead of daily. Results are good though."
+      },
+      {
+        "id": 4,
+        "name": "Samantha D.",
+        "rating": 4,
+        "date": "2024-10-29",
+        "title": "Solid anti-aging eye cream",
+        "skinType": "Combination",
+        "text": "Good eye cream for preventing fine lines. I'm in my early 30s and using this as prevention. Lightweight and absorbs well."
+      },
+      {
+        "id": 5,
+        "name": "Elizabeth A.",
+        "rating": 5,
+        "date": "2024-10-23",
+        "title": "Best drugstore eye cream",
+        "skinType": "Normal",
+        "text": "For the price, this is amazing. My fine lines have improved and it doesn't cause milia like some eye creams do. Highly recommend!"
+      }
     ]
   },
   {
@@ -97,6 +339,62 @@
       { "label": "Oily Skin", "height": "35%" },
       { "label": "Normal Skin", "height": "85%" },
       { "label": "Sensitive Skin", "height": "50%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Taylor M.",
+        "rating": 5,
+        "date": "2024-11-19",
+        "title": "Perfect daily sunscreen",
+        "skinType": "Normal",
+        "text": "This is my holy grail sunscreen! Lightweight, doesn't leave a white cast, and provides excellent protection. I wear it every day under makeup."
+      },
+      {
+        "id": 2,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-13",
+        "title": "Great for sensitive skin",
+        "skinType": "Sensitive",
+        "text": "I have very sensitive skin and this sunscreen doesn't cause any irritation. The zinc oxide formula is gentle but effective."
+      },
+      {
+        "id": 3,
+        "name": "Morgan L.",
+        "rating": 4,
+        "date": "2024-11-08",
+        "title": "Good moisturizing sunscreen",
+        "skinType": "Dry",
+        "text": "Love that this sunscreen also moisturizes. Perfect for my dry skin. Doesn't pill under makeup which is a huge plus."
+      },
+      {
+        "id": 4,
+        "name": "Casey R.",
+        "rating": 3,
+        "date": "2024-11-01",
+        "title": "Too heavy for oily skin",
+        "skinType": "Oily",
+        "text": "While the protection is good, it's a bit too heavy for my oily skin. Makes me look shiny throughout the day. Better for drier skin types."
+      },
+      {
+        "id": 5,
+        "name": "Alex P.",
+        "rating": 5,
+        "date": "2024-10-24",
+        "title": "Dermatologist recommended",
+        "skinType": "Normal",
+        "text": "My dermatologist recommended EltaMD and I'm so glad! No breakouts, great protection, and plays well with all my other skincare products."
+      },
+      {
+        "id": 6,
+        "name": "Jamie C.",
+        "rating": 4,
+        "date": "2024-10-17",
+        "title": "Great for combination skin",
+        "skinType": "Combination",
+        "text": "Works well for my combination skin. Doesn't make my T-zone too oily or dry out my cheeks. Good broad spectrum protection."
+      }
     ]
   },
   {
@@ -117,6 +415,62 @@
       { "label": "Oily Skin", "height": "25%" },
       { "label": "Normal Skin", "height": "80%" },
       { "label": "Sensitive Skin", "height": "70%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Hannah B.",
+        "rating": 4,
+        "date": "2024-11-17",
+        "title": "Great for daily use",
+        "skinType": "Normal",
+        "text": "This moisturizer is perfect for everyday use. Lightweight but hydrating, and the oatmeal really helps soothe my skin. Great value!"
+      },
+      {
+        "id": 2,
+        "name": "Grace W.",
+        "rating": 5,
+        "date": "2024-11-12",
+        "title": "Perfect for sensitive skin",
+        "skinType": "Sensitive",
+        "text": "Aveeno never disappoints! This moisturizer is so gentle and calming. The colloidal oatmeal helps with my occasional irritation."
+      },
+      {
+        "id": 3,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-06",
+        "title": "Good for dry skin",
+        "skinType": "Dry",
+        "text": "Provides good hydration for my dry skin. Not the richest moisturizer but perfect for daily use. Absorbs quickly and doesn't feel heavy."
+      },
+      {
+        "id": 4,
+        "name": "Chloe M.",
+        "rating": 3,
+        "date": "2024-10-31",
+        "title": "Okay for combination skin",
+        "skinType": "Combination",
+        "text": "It's decent but not amazing for my combination skin. Good for the drier areas but sometimes makes my T-zone a bit oily."
+      },
+      {
+        "id": 5,
+        "name": "Zoe L.",
+        "rating": 4,
+        "date": "2024-10-25",
+        "title": "Gentle and effective",
+        "skinType": "Normal",
+        "text": "Really gentle moisturizer that doesn't cause breakouts. The texture is nice and it gives 24-hour hydration as claimed."
+      },
+      {
+        "id": 6,
+        "name": "Madison R.",
+        "rating": 5,
+        "date": "2024-10-19",
+        "title": "Holy grail moisturizer",
+        "skinType": "Sensitive",
+        "text": "This is my go-to moisturizer! Never causes irritation and keeps my skin balanced. The oatmeal formula is so soothing."
+      }
     ]
   },
   {
@@ -137,6 +491,62 @@
       { "label": "Oily Skin", "height": "30%" },
       { "label": "Normal Skin", "height": "80%" },
       { "label": "Sensitive Skin", "height": "60%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Bella S.",
+        "rating": 5,
+        "date": "2024-11-20",
+        "title": "Amazing for dark spots!",
+        "skinType": "Normal",
+        "text": "This serum has completely transformed my skin! My dark spots have faded significantly and my complexion is so much more even. Worth every penny!"
+      },
+      {
+        "id": 2,
+        "name": "Aria F.",
+        "rating": 4,
+        "date": "2024-11-15",
+        "title": "Great vitamin C alternative",
+        "skinType": "Sensitive",
+        "text": "I can't use vitamin C serums due to sensitivity, but this viniferine serum works wonderfully! Gentle but effective for brightening."
+      },
+      {
+        "id": 3,
+        "name": "Luna D.",
+        "rating": 5,
+        "date": "2024-11-10",
+        "title": "Luxury that works",
+        "skinType": "Combination",
+        "text": "Expensive but worth it! My skin is noticeably brighter and more radiant. The texture is beautiful and it layers well with other products."
+      },
+      {
+        "id": 4,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-04",
+        "title": "Gentle brightening serum",
+        "skinType": "Dry",
+        "text": "Really gentle serum that still delivers results. My melasma has improved and my skin looks more luminous. Takes time to see results though."
+      },
+      {
+        "id": 5,
+        "name": "Ivy M.",
+        "rating": 3,
+        "date": "2024-10-28",
+        "title": "Overpriced for results",
+        "skinType": "Oily",
+        "text": "It's a nice serum but I'm not sure it's worth the high price tag. Saw some improvement but nothing dramatic. There are better value options."
+      },
+      {
+        "id": 6,
+        "name": "Stella R.",
+        "rating": 5,
+        "date": "2024-10-21",
+        "title": "Perfect for pregnancy",
+        "skinType": "Normal",
+        "text": "Used this during pregnancy as a safe alternative to vitamin C and retinol. Kept my skin glowing and helped with pregnancy melasma."
+      }
     ]
   },
   {
@@ -157,6 +567,53 @@
       { "label": "Oily Skin", "height": "25%" },
       { "label": "Normal Skin", "height": "85%" },
       { "label": "Sensitive Skin", "height": "70%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Hazel G.",
+        "rating": 5,
+        "date": "2024-11-21",
+        "title": "Luxury skincare at its best",
+        "skinType": "Normal",
+        "text": "This duo is incredible! The cleanser is so gentle yet effective, and the moisturizer is like silk on the skin. Expensive but worth it for special occasions."
+      },
+      {
+        "id": 2,
+        "name": "Willow J.",
+        "rating": 4,
+        "date": "2024-11-16",
+        "title": "Beautiful packaging and results",
+        "skinType": "Dry",
+        "text": "Tatcha products always feel so luxurious. This duo left my skin feeling incredibly soft and hydrated. The cleanser removes everything without stripping."
+      },
+      {
+        "id": 3,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-11",
+        "title": "Great for sensitive skin",
+        "skinType": "Sensitive",
+        "text": "Really gentle duo that doesn't cause any irritation. The Japanese ingredients feel so soothing on my sensitive skin. Pricey but effective."
+      },
+      {
+        "id": 4,
+        "name": "River L.",
+        "rating": 3,
+        "date": "2024-11-05",
+        "title": "Good but overpriced",
+        "skinType": "Combination",
+        "text": "The products work well but I'm not sure they're worth the premium price. Similar results can be achieved with less expensive products."
+      },
+      {
+        "id": 5,
+        "name": "Phoenix C.",
+        "rating": 5,
+        "date": "2024-10-30",
+        "title": "Perfect travel size duo",
+        "skinType": "Normal",
+        "text": "Love that this comes as a duo! Perfect for travel or trying Tatcha for the first time. Both products are gentle and effective."
+      }
     ]
   },
   {
@@ -177,6 +634,71 @@
       { "label": "Oily Skin", "height": "30%" },
       { "label": "Normal Skin", "height": "90%" },
       { "label": "Sensitive Skin", "height": "75%" }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ruby W.",
+        "rating": 5,
+        "date": "2024-11-22",
+        "title": "Luxurious body cream!",
+        "skinType": "Dry",
+        "text": "This body cream is absolutely divine! The whipped oil texture is so unique and leaves my skin feeling incredibly soft and radiant. Love the subtle glow it gives."
+      },
+      {
+        "id": 2,
+        "name": "Scarlett H.",
+        "rating": 5,
+        "date": "2024-11-18",
+        "title": "Perfect for dry winter skin",
+        "skinType": "Dry",
+        "text": "My skin has been so dry this winter and this cream has been a lifesaver! The formula is rich but not greasy. Definitely repurchasing."
+      },
+      {
+        "id": 3,
+        "name": "Violet B.",
+        "rating": 4,
+        "date": "2024-11-13",
+        "title": "Great for special occasions",
+        "skinType": "Normal",
+        "text": "Love using this for date nights or special events. Gives my skin a beautiful glow and the scent is amazing. A little goes a long way."
+      },
+      {
+        "id": 4,
+        "name": "Anonymous",
+        "rating": 4,
+        "date": "2024-11-08",
+        "title": "Unique texture and results",
+        "skinType": "Combination",
+        "text": "The whipped oil concept is really innovative. It absorbs well and doesn't leave my skin feeling greasy. Great for achieving that 'glowing skin' look."
+      },
+      {
+        "id": 5,
+        "name": "Rose M.",
+        "rating": 3,
+        "date": "2024-11-02",
+        "title": "Too rich for summer",
+        "skinType": "Oily",
+        "text": "It's a beautiful product but too heavy for my oily skin, especially in warmer weather. Better for fall/winter or drier skin types."
+      },
+      {
+        "id": 6,
+        "name": "Lily K.",
+        "rating": 5,
+        "date": "2024-10-26",
+        "title": "Fenty never disappoints",
+        "skinType": "Normal",
+        "text": "Another winner from Fenty! This body cream makes my skin look and feel amazing. The packaging is gorgeous too. Worth the splurge!"
+      },
+      {
+        "id": 7,
+        "name": "Jasmine P.",
+        "rating": 4,
+        "date": "2024-10-20",
+        "title": "Great for sensitive skin",
+        "skinType": "Sensitive",
+        "text": "I have very sensitive skin and this cream didn't cause any irritation. It's nourishing and gives a nice subtle glow without being overwhelming."
+      }
     ]
   }
 ]

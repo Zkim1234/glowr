@@ -8,6 +8,18 @@ import PromoBoard from "./assets/components/PromoBoard";
 import Product from "./assets/pages/Product";
 import productsData from "../products.json";
 
+// Utility function to calculate average rating from reviews
+function calculateAverageRating(product) {
+  if (!product.reviews || product.reviews.length === 0) {
+    return product.rating || 0;
+  }
+  const sum = product.reviews.reduce(
+    (total, review) => total + review.rating,
+    0
+  );
+  return parseFloat((sum / product.reviews.length).toFixed(1));
+}
+
 function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     try {
@@ -69,59 +81,69 @@ function App() {
           {sortedProducts.slice(0, 6).map((product, index) => (
             <TopRankedItem
               key={product.id}
-              ranking={String(index + 1).padStart(2, '0')}
+              ranking={String(index + 1).padStart(2, "0")}
               image={<img src={product.image} alt="Product" />}
               brand={product.brand}
               product={product.name}
-              rating={product.rating}
-              reviewCount={product.reviewCount}
+              rating={calculateAverageRating(product)}
+              reviewCount={product.reviews ? product.reviews.length : 0}
               productId={product.id}
               onProductClick={navigateToProduct}
             />
           ))}
         </div>
       </div>
-        <div id="for-you" className="ForYouSection">
-          <div className="ForYouHeader">
-            <h3>FOR YOU</h3>
-            <a href="#" className="ViewMoreLink">view more →</a>
-          </div>
-          <div className="ForYouList">
-            {sortedProducts.slice(0, 5).map((product) => (
-              <ForYou
-                key={product.id}
-                image={<img src={product.image} width="100" alt={product.name} />}
-                description={product.name}
-                brand={product.brand}
-                rating={product.rating}
-                reviewCount={product.reviewCount}
-                productId={product.id}
-                onProductClick={navigateToProduct}
-              />
-            ))}
-          </div>
+      <div id="for-you" className="ForYouSection">
+        <div className="ForYouHeader">
+          <h3>FOR YOU</h3>
+          <a href="#" className="ViewMoreLink">
+            view more →
+          </a>
         </div>
-        <div id="hit-ingredients" className="HitIngredientsSection">
-          <h3>HIT INGREDIENTS THIS YEAR</h3>
-          <div className="IngredientsList">
-            <HitIngredients
-              image={<img src="/round-retinoids.png" width="100" alt="Ingredient 1" />}
-              name="Retinoids"
+        <div className="ForYouList">
+          {sortedProducts.slice(0, 5).map((product) => (
+            <ForYou
+              key={product.id}
+              image={<img src={product.image} width="100" alt={product.name} />}
+              description={product.name}
+              brand={product.brand}
+              rating={calculateAverageRating(product)}
+              reviewCount={product.reviews ? product.reviews.length : 0}
+              productId={product.id}
+              onProductClick={navigateToProduct}
             />
-            <HitIngredients
-              image={<img src="/round-sunscreen.png" width="100" alt="Ingredient 2" />}
-              name="Sunscreen"
-            />
-            <HitIngredients
-              image={<img src="/round-vitaminc.png" width="100" alt="Ingredient 3" />}
-              name="Vitamin C"
-            />
-            <HitIngredients
-              image={<img src="/round-peptide.png" width="100" alt="Ingredient 4" />}
-              name="Peptides"
-            />
-          </div>
+          ))}
         </div>
+      </div>
+      <div id="hit-ingredients" className="HitIngredientsSection">
+        <h3>HIT INGREDIENTS THIS YEAR</h3>
+        <div className="IngredientsList">
+          <HitIngredients
+            image={
+              <img src="/round-retinoids.png" width="100" alt="Ingredient 1" />
+            }
+            name="Retinoids"
+          />
+          <HitIngredients
+            image={
+              <img src="/round-sunscreen.png" width="100" alt="Ingredient 2" />
+            }
+            name="Sunscreen"
+          />
+          <HitIngredients
+            image={
+              <img src="/round-vitaminc.png" width="100" alt="Ingredient 3" />
+            }
+            name="Vitamin C"
+          />
+          <HitIngredients
+            image={
+              <img src="/round-peptide.png" width="100" alt="Ingredient 4" />
+            }
+            name="Peptides"
+          />
+        </div>
+      </div>
       <footer className="Footer">
         <div className="FooterTop"></div>
         <div className="FooterBottom">

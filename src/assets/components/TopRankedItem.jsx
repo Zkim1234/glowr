@@ -16,10 +16,12 @@ function TopRankedItem({
     }
   };
 
-  // Format review count (e.g., "560,385" -> "(560.4k)" or "8,723" -> "(8.7k)")
+  // Format review count (e.g., 560 -> "(560)" or 8723 -> "(8.7k)")
   const formatReviewCount = (count) => {
     if (!count) return "";
-    const num = parseFloat(count.replace(/,/g, ""));
+    // Handle both string and number inputs
+    const num =
+      typeof count === "string" ? parseFloat(count.replace(/,/g, "")) : count;
     if (num >= 1000) {
       const kValue = num / 1000;
       // Show 1 decimal place if less than 10k, otherwise show more precision
@@ -31,7 +33,7 @@ function TopRankedItem({
         return `(${kValue.toFixed(0)}k)`;
       }
     }
-    return `(${count})`;
+    return `(${num})`;
   };
 
   return (
@@ -47,9 +49,7 @@ function TopRankedItem({
         }
       }}
     >
-      <div className="RankedItemImage">
-        {image}
-      </div>
+      <div className="RankedItemImage">{image}</div>
       <div className="ProductInfo">
         <div className="BrandAndRanking">
           <p className="BrandName">{brand}</p>
@@ -59,7 +59,11 @@ function TopRankedItem({
         <div className="Rating">
           <span className="RatingStars">★</span>
           <span className="RatingValue">{rating}</span>
-          {reviewCount && <span className="ReviewCount">{formatReviewCount(reviewCount)}</span>}
+          {reviewCount && (
+            <span className="ReviewCount">
+              {formatReviewCount(reviewCount)}
+            </span>
+          )}
         </div>
       </div>
     </div>

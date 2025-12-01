@@ -1,14 +1,18 @@
 /* Mobile-First Base Styles */
 .modal {
+  display: flex;
   flex-direction: column;
   width: 100%;
-  position: relative;
+  max-width: 100vw;
+  max-height: 90vh;
   border-radius: 30px;
   box-sizing: border-box;
-  overflow-y: auto;
+  overflow: hidden;
   border: none;
   background: #e5eef2;
-  scrollbar-width: none;
+  padding: 0;
+  margin: auto;
+  position: relative;
 }
 
 dialog::backdrop,
@@ -27,9 +31,30 @@ body:has(.modal[open]) {
   padding: 20px;
   margin: 0;
   width: 100%;
+  flex: 1;
   position: relative;
   box-sizing: border-box;
-  overflow-y: visible;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #7a9bb0 #e5eef2;
+}
+
+/* WebKit scrollbar styling */
+.reviewContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reviewContainer::-webkit-scrollbar-track {
+  background: #e5eef2;
+}
+
+.reviewContainer::-webkit-scrollbar-thumb {
+  background: #7a9bb0;
+  border-radius: 4px;
+}
+
+.reviewContainer::-webkit-scrollbar-thumb:hover {
+  background: #6a8a9f;
 }
 .titles {
   margin-bottom: 8px;
@@ -88,10 +113,12 @@ body:has(.modal[open]) {
   font-size: 18px;
 }
 
-img {
+.productImage img {
   margin-top: 10px;
+  width: 120px;
   height: auto;
   border-radius: 8px;
+  object-fit: contain;
 }
 
 .brand {
@@ -269,15 +296,19 @@ img {
     min-width: 700px;
     max-width: 900px;
     width: 90vw;
+    max-height: 85vh;
   }
 
   .reviewContainer {
     padding: 30px;
     border-radius: 35px;
-    overflow-y: visible;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #7a9bb0 #e5eef2;
   }
 
   .closeBtn {
@@ -312,13 +343,15 @@ img {
   }
 
   .productImage {
-    align-self: stretch;
+    align-self: flex-start;
+    flex-shrink: 0;
   }
 
-  img {
+  .productImage img {
     margin-top: 20px;
-    width: 300px;
+    width: 180px;
     height: auto;
+    object-fit: contain;
   }
 
   .brand {

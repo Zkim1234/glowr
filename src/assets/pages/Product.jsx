@@ -13,16 +13,25 @@ function Product({ onBackToHome, productId = 1 }) {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [openMenuId, setOpenMenuId] = React.useState(null);
 
-  // initialize reviews when product loads (fallback to a couple sample reviews)
+  // initialize reviews when product loads (mark API reviews as non-editable)
   React.useEffect(() => {
     if (!product) return;
     if (product.reviews && Array.isArray(product.reviews)) {
-      setReviews(product.reviews);
+      // Mark API reviews as non-editable
+      const apiReviews = product.reviews.map((review) => ({
+        ...review,
+        isApiReview: true,
+      }));
+      setReviews(apiReviews);
     }
   }, [product]);
 
   function addReview(newReview) {
-    const withId = { ...newReview, id: Date.now() };
+    const withId = {
+      ...newReview,
+      id: Date.now(),
+      isApiReview: false, // User-created reviews are editable
+    };
     setReviews((prev) => [withId, ...prev]);
   }
 
@@ -36,6 +45,14 @@ function Product({ onBackToHome, productId = 1 }) {
     setReviews((prev) => prev.filter((r) => r.id !== id));
   }
 
+  function reportReview(id) {
+    // For now, just show an alert - in a real app this would send to backend
+    alert(
+      "Review has been reported. Thank you for helping keep our community safe!"
+    );
+    setOpenMenuId(null);
+  }
+
   function handleSubmit(review) {
     if (review.id) {
       updateReview(review);
@@ -44,6 +61,15 @@ function Product({ onBackToHome, productId = 1 }) {
     }
     setModalOpen(false);
     setEditingReview(null);
+  }
+
+  // Calculate average rating from reviews
+  function calculateAverageRating() {
+    if (reviews.length === 0) {
+      return product?.rating || 0;
+    }
+    const sum = reviews.reduce((total, review) => total + review.rating, 0);
+    return (sum / reviews.length).toFixed(1);
   }
 
   // Load product data based on productId
@@ -89,10 +115,35 @@ function Product({ onBackToHome, productId = 1 }) {
         </div>
         <div className="rating">
           {/* overall rating */}
-          <span className="rating-avg desktop-title">{product.rating}</span>
-          <span>⭐⭐⭐⭐⭐</span>
-          <span className="mobile-small desktop-regular">
-            {product.reviewCount} reviews...
+          <span className="rating-avg mobile-title desktop-title">
+            {calculateAverageRating()}
+          </span>
+          <span className="review-stars">
+            {Array.from({ length: 5 }).map((_, i) => {
+              const rating = parseFloat(calculateAverageRating());
+              const isFilled = i < Math.floor(rating);
+              const isPartial = i === Math.floor(rating) && rating % 1 >= 0.5;
+
+              return (
+                <img
+                  key={i}
+                  className="star"
+                  src={
+                    isFilled || isPartial
+                      ? "/starFilled.svg"
+                      : "/starUnfilled.svg"
+                  }
+                  alt={
+                    isFilled || isPartial
+                      ? `filled star ${i + 1}`
+                      : `empty star ${i + 1}`
+                  }
+                />
+              );
+            })}
+          </span>
+          <span className="mobile-regular desktop-regular">
+            {reviews.length} reviews
           </span>
         </div>
         <div className="ingredients">
@@ -145,20 +196,22 @@ function Product({ onBackToHome, productId = 1 }) {
           >
             Write a Review
           </button>
-          <Modal
-            open={modalOpen}
-            onClose={() => {
-              setModalOpen(false);
-              setEditingReview(null);
-            }}
-            childProps={{
-              onSubmit: handleSubmit,
-              initialReview: editingReview,
-              product: product,
-            }}
-          >
-            <Dialog />
-          </Modal>
+          {modalOpen && (
+            <Modal
+              open={modalOpen}
+              onClose={() => {
+                setModalOpen(false);
+                setEditingReview(null);
+              }}
+              childProps={{
+                onSubmit: handleSubmit,
+                initialReview: editingReview,
+                product: product,
+              }}
+            >
+              <Dialog />
+            </Modal>
+          )}
         </div>
         <div className="all-reviews">
           {reviews.length === 0 ? (
@@ -249,34 +302,49 @@ function Product({ onBackToHome, productId = 1 }) {
                       role="menu"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <button
-                        role="menuitem"
-                        className="menu-edit"
-                        onClick={() => {
-                          setEditingReview(r);
-                          setModalOpen(true);
-                          setOpenMenuId(null);
-                        }}
-                      >
-                        <span>Edit Review</span>
-                        <span className="menu-icon">
-                          <img src="/edit.svg" alt="edit icon" />
-                        </span>
-                      </button>
-                      <div className="menu-divider" />
-                      <button
-                        role="menuitem"
-                        className="menu-delete"
-                        onClick={() => {
-                          deleteReview(r.id);
-                          setOpenMenuId(null);
-                        }}
-                      >
-                        <span>Delete</span>
-                        <span className="menu-icon">
-                          <img src="/delete.svg" alt="delete icon" />
-                        </span>
-                      </button>
+                      {r.isApiReview ? (
+                        // API review - only show report option
+                        <button
+                          role="menuitem"
+                          className="menu-report"
+                          onClick={() => reportReview(r.id)}
+                        >
+                          <span>Report Review</span>
+                          <span className="menu-icon">⚠️</span>
+                        </button>
+                      ) : (
+                        // User review - show edit and delete options
+                        <>
+                          <button
+                            role="menuitem"
+                            className="menu-edit"
+                            onClick={() => {
+                              setEditingReview(r);
+                              setModalOpen(true);
+                              setOpenMenuId(null);
+                            }}
+                          >
+                            <span>Edit Review</span>
+                            <span className="menu-icon">
+                              <img src="/edit.svg" alt="edit icon" />
+                            </span>
+                          </button>
+                          <div className="menu-divider" />
+                          <button
+                            role="menuitem"
+                            className="menu-delete"
+                            onClick={() => {
+                              deleteReview(r.id);
+                              setOpenMenuId(null);
+                            }}
+                          >
+                            <span>Delete</span>
+                            <span className="menu-icon">
+                              <img src="/delete.svg" alt="delete icon" />
+                            </span>
+                          </button>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
