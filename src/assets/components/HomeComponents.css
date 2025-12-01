@@ -116,7 +116,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-shrink: 0;
   cursor: pointer;
   width: 100%;

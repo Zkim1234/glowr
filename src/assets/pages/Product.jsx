@@ -245,7 +245,7 @@ function Product({ onBackToHome, productId = 1 }) {
             </Modal>
           )}
         </div>
-        
+
         {/* Review Filters */}
         {reviews.length > 0 && (
           <div className="review-filters">

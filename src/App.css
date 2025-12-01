@@ -142,7 +142,7 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   flex: 1;
-  background: #6f97ad;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +152,7 @@
 
 .FooterBottom p {
   margin: 0;
-  color: #ffffff;
+  color: #000000;
   font-size: 14px;
   font-weight: normal;
   text-align: center;
