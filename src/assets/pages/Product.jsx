@@ -12,6 +12,8 @@ function Product({ onBackToHome, productId = 1 }) {
   const [editingReview, setEditingReview] = React.useState(null);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [openMenuId, setOpenMenuId] = React.useState(null);
+  const [skinTypeFilter, setSkinTypeFilter] = React.useState("All");
+  const [sortBy, setSortBy] = React.useState("newest");
 
   // initialize reviews when product loads (mark API reviews as non-editable)
   React.useEffect(() => {
@@ -82,6 +84,36 @@ function Product({ onBackToHome, productId = 1 }) {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Filter and sort reviews
+  const getFilteredAndSortedReviews = () => {
+    let filteredReviews = [...reviews];
+
+    // Filter by skin type
+    if (skinTypeFilter !== "All") {
+      filteredReviews = filteredReviews.filter(
+        (review) => review.skinType === skinTypeFilter
+      );
+    }
+
+    // Sort reviews
+    switch (sortBy) {
+      case "highest":
+        filteredReviews.sort((a, b) => b.rating - a.rating);
+        break;
+      case "lowest":
+        filteredReviews.sort((a, b) => a.rating - b.rating);
+        break;
+      case "newest":
+      default:
+        // Keep original order (newest first)
+        break;
+    }
+
+    return filteredReviews;
+  };
+
+  const filteredReviews = getFilteredAndSortedReviews();
 
   if (!product) {
     return <div>Loading...</div>;
@@ -213,11 +245,49 @@ function Product({ onBackToHome, productId = 1 }) {
             </Modal>
           )}
         </div>
+        
+        {/* Review Filters */}
+        {reviews.length > 0 && (
+          <div className="review-filters">
+            <div className="filter-group">
+              <label className="filter-label">Skin Type:</label>
+              <select
+                className="filter-select"
+                value={skinTypeFilter}
+                onChange={(e) => setSkinTypeFilter(e.target.value)}
+              >
+                <option value="All">All Skin Types</option>
+                <option value="Normal">Normal</option>
+                <option value="Dry">Dry</option>
+                <option value="Oily">Oily</option>
+                <option value="Combination">Combination</option>
+                <option value="Sensitive">Sensitive</option>
+              </select>
+            </div>
+            <div className="filter-group">
+              <label className="filter-label">Sort by:</label>
+              <select
+                className="filter-select"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+              >
+                <option value="newest">Newest First</option>
+                <option value="highest">Highest Rating</option>
+                <option value="lowest">Lowest Rating</option>
+              </select>
+            </div>
+          </div>
+        )}
+
         <div className="all-reviews">
-          {reviews.length === 0 ? (
+          {filteredReviews.length === 0 && reviews.length > 0 ? (
+            <p className="mobile-regular desktop-regular">
+              No reviews found for the selected filters.
+            </p>
+          ) : filteredReviews.length === 0 ? (
             <p className="mobile-regular desktop-regular">No reviews yet.</p>
           ) : (
-            reviews.map((r) => (
+            filteredReviews.map((r) => (
               <div
                 className="review"
                 key={r.id}

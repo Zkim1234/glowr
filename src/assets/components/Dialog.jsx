@@ -234,6 +234,14 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
           <div className={styles.skinTypeButtons}>
             <button
               className={`${styles.skinTypeBtn} ${
+                skinType === "Normal" ? styles.skinToggle : ""
+              }`}
+              onClick={() => setSkinType("Normal")}
+            >
+              Normal
+            </button>
+            <button
+              className={`${styles.skinTypeBtn} ${
                 skinType === "Oily" ? styles.skinToggle : ""
               }`}
               onClick={() => setSkinType("Oily")}
@@ -255,6 +263,14 @@ function Dialog({ onClose, onSubmit, initialReview, product }) {
               onClick={() => setSkinType("Dry")}
             >
               Dry
+            </button>
+            <button
+              className={`${styles.skinTypeBtn} ${
+                skinType === "Sensitive" ? styles.skinToggle : ""
+              }`}
+              onClick={() => setSkinType("Sensitive")}
+            >
+              Sensitive
             </button>
           </div>
         </div>
