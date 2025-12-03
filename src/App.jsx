@@ -8,16 +8,41 @@ import PromoBoard from "./assets/components/PromoBoard";
 import Product from "./assets/pages/Product";
 import productsData from "../products.json";
 
-// Utility function to calculate average rating from reviews
+// Load user reviews from localStorage
+function getUserReviews(productId) {
+  try {
+    const stored = localStorage.getItem(`glowr-reviews-${productId}`);
+    return stored ? JSON.parse(stored) : [];
+  } catch (error) {
+    console.error("Error loading reviews from localStorage:", error);
+    return [];
+  }
+}
+
+// Utility function to calculate average rating from reviews (including user reviews)
 function calculateAverageRating(product) {
-  if (!product.reviews || product.reviews.length === 0) {
+  // Get API reviews
+  const apiReviews = product.reviews || [];
+
+  // Get user reviews from localStorage
+  const userReviews = getUserReviews(product.id);
+
+  // Combine all reviews
+  const allReviews = [...userReviews, ...apiReviews];
+
+  if (allReviews.length === 0) {
     return product.rating || 0;
   }
-  const sum = product.reviews.reduce(
-    (total, review) => total + review.rating,
-    0
-  );
-  return parseFloat((sum / product.reviews.length).toFixed(1));
+
+  const sum = allReviews.reduce((total, review) => total + review.rating, 0);
+  return parseFloat((sum / allReviews.length).toFixed(1));
+}
+
+// Calculate total review count (including user reviews)
+function calculateReviewCount(product) {
+  const apiReviews = product.reviews || [];
+  const userReviews = getUserReviews(product.id);
+  return apiReviews.length + userReviews.length;
 }
 
 function App() {
@@ -38,8 +63,16 @@ function App() {
     }
   });
 
-  // Sort products by ID to ensure correct ranking
-  const sortedProducts = [...productsData].sort((a, b) => a.id - b.id);
+  // Sort products by rating (highest first) for proper ranking
+  const sortedProducts = [...productsData].sort((a, b) => {
+    const ratingA = calculateAverageRating(a);
+    const ratingB = calculateAverageRating(b);
+    // Sort by rating (descending), then by review count if ratings are equal
+    if (ratingB !== ratingA) {
+      return ratingB - ratingA;
+    }
+    return calculateReviewCount(b) - calculateReviewCount(a);
+  });
 
   const navigateToProduct = (productId = 1) => {
     setCurrentProductId(productId);
@@ -86,7 +119,7 @@ function App() {
               brand={product.brand}
               product={product.name}
               rating={calculateAverageRating(product)}
-              reviewCount={product.reviews ? product.reviews.length : 0}
+              reviewCount={calculateReviewCount(product)}
               productId={product.id}
               onProductClick={navigateToProduct}
             />
@@ -108,7 +141,7 @@ function App() {
               description={product.name}
               brand={product.brand}
               rating={calculateAverageRating(product)}
-              reviewCount={product.reviews ? product.reviews.length : 0}
+              reviewCount={calculateReviewCount(product)}
               productId={product.id}
               onProductClick={navigateToProduct}
             />

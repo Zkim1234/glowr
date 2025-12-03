@@ -15,17 +15,45 @@ function Product({ onBackToHome, productId = 1 }) {
   const [skinTypeFilter, setSkinTypeFilter] = React.useState("All");
   const [sortBy, setSortBy] = React.useState("newest");
 
+  // Load user reviews from localStorage
+  const getUserReviews = (productId) => {
+    try {
+      const stored = localStorage.getItem(`glowr-reviews-${productId}`);
+      return stored ? JSON.parse(stored) : [];
+    } catch (error) {
+      console.error("Error loading reviews from localStorage:", error);
+      return [];
+    }
+  };
+
+  // Save user reviews to localStorage
+  const saveUserReviews = (productId, userReviews) => {
+    try {
+      localStorage.setItem(
+        `glowr-reviews-${productId}`,
+        JSON.stringify(userReviews)
+      );
+    } catch (error) {
+      console.error("Error saving reviews to localStorage:", error);
+    }
+  };
+
   // initialize reviews when product loads (mark API reviews as non-editable)
   React.useEffect(() => {
     if (!product) return;
-    if (product.reviews && Array.isArray(product.reviews)) {
-      // Mark API reviews as non-editable
-      const apiReviews = product.reviews.map((review) => ({
+
+    // Get API reviews from product data
+    const apiReviews =
+      product.reviews?.map((review) => ({
         ...review,
         isApiReview: true,
-      }));
-      setReviews(apiReviews);
-    }
+      })) || [];
+
+    // Get user reviews from localStorage
+    const userReviews = getUserReviews(product.id);
+
+    // Combine API reviews and user reviews (user reviews first)
+    setReviews([...userReviews, ...apiReviews]);
   }, [product]);
 
   function addReview(newReview) {
@@ -34,17 +62,35 @@ function Product({ onBackToHome, productId = 1 }) {
       id: Date.now(),
       isApiReview: false, // User-created reviews are editable
     };
-    setReviews((prev) => [withId, ...prev]);
+    setReviews((prev) => {
+      const updatedReviews = [withId, ...prev];
+      // Save only user reviews to localStorage
+      const userReviews = updatedReviews.filter((r) => !r.isApiReview);
+      saveUserReviews(product.id, userReviews);
+      return updatedReviews;
+    });
   }
 
   function updateReview(updated) {
-    setReviews((prev) =>
-      prev.map((r) => (r.id === updated.id ? { ...r, ...updated } : r))
-    );
+    setReviews((prev) => {
+      const updatedReviews = prev.map((r) =>
+        r.id === updated.id ? { ...r, ...updated } : r
+      );
+      // Save only user reviews to localStorage
+      const userReviews = updatedReviews.filter((r) => !r.isApiReview);
+      saveUserReviews(product.id, userReviews);
+      return updatedReviews;
+    });
   }
 
   function deleteReview(id) {
-    setReviews((prev) => prev.filter((r) => r.id !== id));
+    setReviews((prev) => {
+      const updatedReviews = prev.filter((r) => r.id !== id);
+      // Save only user reviews to localStorage
+      const userReviews = updatedReviews.filter((r) => !r.isApiReview);
+      saveUserReviews(product.id, userReviews);
+      return updatedReviews;
+    });
   }
 
   function reportReview(id) {
